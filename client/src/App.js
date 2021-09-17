@@ -11,7 +11,9 @@ function App() {
     <div className='App'>
       <Navbar />
       <Route exact path='/'>
-        <img src='./images/futuristic.png' alt="futuristic sci-fi image" />
+        <div>
+          <img src='./images/futuristic.png' alt='futuristic sci-fi' />
+        </div>
       </Route>
       <Route exact path='/movies'>
         <AllMovies />

@@ -17,8 +17,13 @@ export async function fetchMovies() {
     return res.data.records
 }
 
-export async function fetchMovieDetails(searchMovie) {
-    const res = await axios.get(`${omdbURL}${searchMovie}`)
+export async function fetchMovie(id) {
+    const res = await axios.get(`${airtableURL}/${id}`, config)
+    return res.data
+}
+
+export async function fetchMovieDetails(movieTitle) {
+    const res = await axios.get(`${omdbURL}${movieTitle}`)
     return res.data
 }
 
