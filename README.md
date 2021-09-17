@@ -4,7 +4,7 @@
 
 ## Project Description
 
-wheretostart is a React build utilizing Airtable where the user is able to vote for their recommendations to give those who are looking to break into a new movie genre, skill, or hobby an idea of where to start. This version focuses on sci-fi movies and users can recommend must-see movies for sci-fi beginners.
+wheretostart allows users to vote for their recommendations to give those who are looking to break into a new movie genre, skill, or hobby an idea of where to start. This version focuses on sci-fi movies and users can recommend must-see movies for sci-fi beginners. There is a ranking system based on votes, so that the movies with the most votes gets pushed to the top, and users can also submit new movie recommendations as well.
 
 ## Wireframes
 The following wireframes depict the mobile and desktop layouts for the app.
@@ -24,7 +24,17 @@ The following wireframes depict the mobile and desktop layouts for the app.
 Airtable is returning the data for this base as follows:
 
 ```
-{
+    {
+      "fields": {
+        "title": "The Fifth Element",
+        "year": "1997",
+        "cast": "Bruce Willis, Milla Jovovich, Gary Oldman",
+        "plot": "In the colorful future, a cab driver unwittingly becomes the central figure in the search for a legendary cosmic weapon to keep Evil and Mr. Zorg at b...",
+        "votes": 0,
+        "poster": "https://m.media-amazon.com/images/M/MV5BZWFjYmZmZGQtYzg4YS00ZGE5LTgwYzAtZmQwZjQ2NDliMGVmXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg",
+        "director": "Luc Besson"
+      }
+    }
 
 
 ```
