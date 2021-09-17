@@ -4,7 +4,7 @@
 
 ## Project Description
 
-wheretostart allows users to vote for their recommendations to give those who are looking to break into a new movie genre, skill, or hobby an idea of where to start. This version focuses on sci-fi movies and users can recommend must-see movies for sci-fi beginners. There is a ranking system based on votes, so that the movies with the most votes gets pushed to the top, and users can also submit new movie recommendations as well.
+wheretostart is a collection of resources and recommendations for beginners who are looking to break into a new movie genre, skill, or hobby. This version focuses on sci-fi movies, and users can recommend must-see movies for sci-fi beginners. There is a ranking system based on votes, so that the movies with the most votes gets pushed to the top, and users can also submit new movie recommendations as well.
 
 ## Wireframes
 The following wireframes depict the mobile and desktop layouts for the app.
