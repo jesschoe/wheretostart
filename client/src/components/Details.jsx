@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from 'react'
 import { fetchMovieDetails } from '../services'
-import Vote from './Vote'
 
 export default function MovieDetails(props) {
     const [ details, setDetails ] = useState()
@@ -17,13 +16,13 @@ export default function MovieDetails(props) {
         <div>
             <img src={details?.Poster} alt={details?.Title} />
             <div>
-                <p>{details?.Rated}</p>
-                <p>{details?.Director}</p>
-                <p>{details?.Actors}</p>
-                <p>{details?.Awards}</p>
-                <p>{details?.Plot}</p>
+                <p>Rated: {details?.Rated}</p>
+                <p>Directed By: {details?.Director}</p>
+                <p>Cast: {details?.Actors}</p>
+                <p>Awards: {details?.Awards}</p>
+                <p>Plot: {details?.Plot}</p>
             </div>
-            <Vote />
+            
         </div>
     )
 }

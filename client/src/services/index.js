@@ -22,6 +22,16 @@ export async function fetchMovie(id) {
     return res.data
 }
 
+export async function voteMovie(id, fields) {
+    const res = await axios.put(`${airtableURL}/${id}`, {fields}, config)
+    return res.data
+}
+
+export async function submitMovie(fields) {
+    const res = await axios.post(airtableURL, {fields}, config)
+    return res.data
+}
+
 export async function fetchMovieDetails(movieTitle) {
     const res = await axios.get(`${omdbURL}${movieTitle}`)
     return res.data

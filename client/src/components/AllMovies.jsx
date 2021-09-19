@@ -13,10 +13,10 @@ export default function AllMovies() {
     }, [])
 
     return (
-        <div>
+        <div className='movie-container'>
             {movies.map(movie => {
                 return (
-                    <div key={movie.id}>
+                    <div key={movie.id} className='movie-card'>
                         <Link to={`/movies/${movie.id}`}>
                             <img src={movie.fields?.poster} alt={movie.fields?.name} key={movie.id} />
                         </Link>
