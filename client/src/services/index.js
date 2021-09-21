@@ -21,6 +21,7 @@ export async function fetchMovies() {
 }
 
 export async function fetchMovie(id) {
+    console.log(id)
     const res = await axios.get(`${airtableURL}/${id}`, config)
     return res.data
 }

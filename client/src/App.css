@@ -5,6 +5,7 @@
   text-align: center;
   background-image: linear-gradient(#160932, #F35EFF, #1871C2, #FFEBFF);
   padding: 0px;
+  
 }
 
 Link {
@@ -46,21 +47,26 @@ footer {
   width: 200px;
   height: 350px;
 }
-
+div {
+  /* border: 1px solid white; */
+}
 .details-container {
   display: flex;
   flex-direction: column;
-  justify-items: center;
-  justify-content: space-around;
+  align-items: center;
   margin: 20px;
-
   background-color: #FFC9FF;
+  opacity: .8;
 }
 
 .movie-detail {
   width: 450px;
   text-align: left;
   margin: 10px;
+}
+
+.img-div {
+  width: 150px;
 }
 
 img {
