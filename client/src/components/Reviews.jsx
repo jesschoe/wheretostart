@@ -8,25 +8,31 @@ export default function Reviews(props) {
     useEffect(() => {
         const getMovie = async() => {
             const data = await fetchMovie(props.id)
+            console.log(data)
             const reviews =  data.fields.reviews
+            console.log(reviews)
             const reviewArr = []
-            reviews.map(async review => {
-                const rev = await getReviews(review)
-                reviewArr.push(rev)
+            if (reviews.length > 0) {
+                reviews.map(async review => {
+                    const rev = await getReviews(review)
+                    reviewArr.push(rev)
+                    console.log('reviewarr', reviewArr)
                 
-            })
-            setReviewComments(reviewArr)  
-
+                })
+                setReviewComments(reviewArr) 
+                
+            }
         }
         getMovie()
     }, [])
     
     return (
         <div>
-            {reviewComments.map(comment => {
+            REVIEWS
+            {reviewComments?.map(comment => {
                 return (
                     <div key={comment?.id}>
-                        <h2>Reviews</h2>
+                        
                         <p>{comment.fields?.review}</p>
                     </div>
                 )

@@ -12,6 +12,7 @@ export default function Vote(props) {
     const [director, setDirector] = useState('')
     const [plot, setPlot] = useState('')
     const [poster, setPoster] = useState('')
+    const [reviews, setReviews] = useState([])
 
     useEffect(() => {
         const getMovie = async() => {
@@ -23,6 +24,7 @@ export default function Vote(props) {
             setDirector(res.fields.director)
             setPoster(res.fields.poster)
             setPlot(res.fields.plot)
+            setReviews(res.fields.reviews)
         }
         getMovie()
 
@@ -38,7 +40,8 @@ export default function Vote(props) {
             plot,
             votes,
             poster,
-            director
+            director, 
+            reviews
         }
         
         await voteMovie(props.id, fields)
@@ -54,7 +57,8 @@ export default function Vote(props) {
             plot,
             votes,
             poster,
-            director
+            director,
+            reviews
         }
 
         await voteMovie(props.id, fields)
@@ -63,8 +67,8 @@ export default function Vote(props) {
 
     return (
         <div>
-            <button onClick={upVoteHandler}>Thumbs Up</button>
-            <button onClick={downVoteHandler}>Thumbs Down</button>
+            <button onClick={upVoteHandler}><i className="fa-thumbs-up"></i>Thumbs Up</button>
+            <button onClick={downVoteHandler}><i className="far fa-thumbs-down"></i>Thumbs Down</button>
         </div>
     )
 }

@@ -24,9 +24,9 @@ export default function SubmitReview() {
         const data = await fetchMovie(id)
         let title
         if (data.fields.reviews?.length) {
-            title = data.fields.reviews.length
+            title = `${data.fields.title}${data.fields.reviews.length}`
         } else {
-            title = 0
+            title = `${data.fields.title}0`
         }
 
         console.log(e.target[0].defaultValue)
@@ -40,7 +40,7 @@ export default function SubmitReview() {
     }
 
     return (
-        <div>
+        <div className='font-rad'>
             Would you like to submit a review?
             <form onSubmit={handleSubmit}>
             <label>Review

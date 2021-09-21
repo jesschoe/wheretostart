@@ -7,7 +7,7 @@ const airtableURL = `https://api.airtable.com/v0/${airtableBase}/Movies`
 const reviewsURL = `https://api.airtable.com/v0/${airtableBase}/Reviews`
 const omdbURL = `http://www.omdbapi.com/?apikey=${omdbKey}&t=$`
 const omdbSearchURL = `http://www.omdbapi.com/?apikey=${omdbKey}&s=$`
-const omdbSearchIdURL = `http://www.omdbapi.com/?apikey=${omdbKey}&i=$`
+const omdbSearchIdURL = `http://www.omdbapi.com/?apikey=${omdbKey}&i=`
 
 const config = {
     headers: {

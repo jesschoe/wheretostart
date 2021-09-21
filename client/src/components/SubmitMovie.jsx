@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router'
 import Form from "./Form"
-import { fetchMovieDetails, searchMovies, submitMovie } from '../services'
+import { searchMovieId, searchMovies, submitMovie } from '../services'
 
 export default function SubmitMovie() {
     const history = useHistory()
@@ -11,15 +11,13 @@ export default function SubmitMovie() {
     const handleSearch = async(e) => {
         e.preventDefault()
         const data = await searchMovies(title)
-        console.log(data)
         setMovieList(data.Search)
     }
 
-    const handleSubmit = async(e) => {
-        console.log(e.target.__reactFiber$jcrtc057eng.key)
-
-        const res = await fetchMovieDetails(e.target.__reactFiber$jcrtc057eng.key)
-        console.log(res)
+    const handleClick = value => async() => {
+        console.log('value', value)
+        const res = await searchMovieId(value)
+        console.log('res', res)
         
         const fields = {
             title: res.Title,
@@ -36,9 +34,9 @@ export default function SubmitMovie() {
     }
 
     return (
-        <div>
-            <div>
-                Search for another movie to recommend!
+        <div className='h-screen search-form'>
+            <div className='font-rad text-lg'>
+                <h3>Search for another movie to recommend!</h3>
                 <Form 
                     title={title}
                     setTitle={setTitle}
@@ -50,9 +48,16 @@ export default function SubmitMovie() {
             <div className='movie-container'>
                 {movieList.map(movie => {
                     return (
-                            <div style={{backgroundImage: `url(${movie?.Poster})`, backgroundRepeat: 'no-repeat', backgroundSize:`contain` }} key={movie?.imdbID} onClick={handleSubmit} className='movie-card font-rad'>
+                            <div style=
+                                {{backgroundImage: `url(${movie?.Poster})`, 
+                                backgroundRepeat: 'no-repeat', 
+                                backgroundSize:`contain` }} 
+                                key={movie?.imdbID} 
+                                onClick={handleClick(`${movie?.imdbID}`)} 
+                                className='movie-card font-rad'
+                            >
                                 <div className='flex-column jusitfy-self-end'>
-                            {movie?.Title}, {movie?.Year}
+                                    {movie?.Title}, {movie?.Year}
                                 </div>
                             </div>
                         
