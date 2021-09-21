@@ -40,8 +40,6 @@ export default function SubmitMovie() {
                 <Form 
                     title={title}
                     setTitle={setTitle}
-                    // year={year}
-                    // setYear={setYear}
                     handleSearch={handleSearch}
                 />
             </div>

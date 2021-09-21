@@ -1,31 +1,28 @@
 import { useState, useEffect } from 'react'
-import { fetchMovie } from '../services'
 import { getReviews } from '../services'
 
 export default function Reviews(props) {
     const [reviewComments, setReviewComments] = useState([])
     
+
     useEffect(() => {
-        const getMovie = async() => {
-            const data = await fetchMovie(props.id)
-            console.log(data)
-            const reviews =  data.fields.reviews
-            console.log(reviews)
-            const reviewArr = []
-            if (reviews.length > 0) {
-                reviews.map(async review => {
-                    const rev = await getReviews(review)
-                    reviewArr.push(rev)
+        const reviewIds = props.ids
+        const reviewArr = []
+        console.log(props.ids)
+
+            if (props.ids) {
+                props.ids.map(async (reviewId) => {
+                    const data = await getReviews(reviewId)
+                    reviewArr.push(data)
                     console.log('reviewarr', reviewArr)
                 
-                })
-                setReviewComments(reviewArr) 
-                
-            }
+            })
+            setReviewComments(reviewArr) 
         }
-        getMovie()
-    }, [])
-    
+
+    }, [props.ids])
+
+
     return (
         <div>
             REVIEWS

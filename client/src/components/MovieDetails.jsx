@@ -12,17 +12,17 @@ export default function MovieDetails() {
     useEffect(() => {
         const getMovie = async() => {
             setMovie(await fetchMovie(id))
-            // const temp = await fetchMovie(id)
-            // console.log(temp)
+
         }
         getMovie()
     }, [id])
 
     return (
         <div>
+            
             <Details title={movie.fields?.title} />
             <Vote id={id} />
-            <Reviews id={id} />
+            <Reviews ids={movie.fields?.reviews} />
         </div>
     )
 }

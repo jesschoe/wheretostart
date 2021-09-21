@@ -1,9 +1,10 @@
 
 
 .App {
-  margin: 0px, auto;
+  margin: 0px;
   text-align: center;
   background-image: linear-gradient(#160932, #F35EFF, #1871C2, #FFEBFF);
+  padding: 0px;
 }
 
 Link {
@@ -20,6 +21,11 @@ nav {
   font-size: 1em;
 }
 
+footer {
+  height: 2em;
+  background-color: #160932;
+}
+
 .site-name {
   font-size: 1.3em;
 }
@@ -28,7 +34,7 @@ nav {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  
+  overflow: auto;
 }
 
 .movie-card {

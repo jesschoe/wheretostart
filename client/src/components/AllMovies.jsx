@@ -38,7 +38,8 @@ export default function AllMovies() {
                             <h1>#{i+1}</h1>
                         </div>
                         <div className='details'>
-                            <h3>{movie.fields?.title}, {movie.fields?.year}</h3>
+                            <h3>{movie.fields?.title}</h3>
+                            <h3>{movie.fields?.year}</h3>
                         </div>
                     </div>
                     </Link>

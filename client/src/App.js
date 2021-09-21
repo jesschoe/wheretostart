@@ -29,6 +29,9 @@ function App() {
       <Route path ='/movies/:id/review'>
         <SubmitReview />
       </Route>
+      <footer>
+        
+      </footer>
     </div>
   );
 }
