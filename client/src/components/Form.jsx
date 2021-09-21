@@ -1,6 +1,6 @@
 export default function Form(props) {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSearch}>
             <label>Movie Title
                 <input 
                     type='text' 
@@ -8,14 +8,14 @@ export default function Form(props) {
                     onChange={(e)=>props.setTitle(e.target.value)} 
                 />
             </label>
-            <label>Year
+            {/* <label>Year
                 <input 
                     type='text' 
                     value={props.year} 
                     onChange={(e)=>props.setYear(e.target.value)} 
                 />
-            </label>
-            <button>Recommend!</button>
+            </label> */}
+            <button>Search!</button>
         </form>
     )
 }

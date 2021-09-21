@@ -4,7 +4,10 @@ const airtableBase = process.env.REACT_APP_AIRTABLE_BASE
 const airtableKey = process.env.REACT_APP_AIRTABLE_KEY
 const omdbKey = process.env.REACT_APP_OMDB_KEY
 const airtableURL = `https://api.airtable.com/v0/${airtableBase}/Movies`
+const reviewsURL = `https://api.airtable.com/v0/${airtableBase}/Reviews`
 const omdbURL = `http://www.omdbapi.com/?apikey=${omdbKey}&t=$`
+const omdbSearchURL = `http://www.omdbapi.com/?apikey=${omdbKey}&s=$`
+const omdbSearchIdURL = `http://www.omdbapi.com/?apikey=${omdbKey}&i=$`
 
 const config = {
     headers: {
@@ -37,4 +40,23 @@ export async function fetchMovieDetails(movieTitle) {
     return res.data
 }
 
+export async function searchMovies(title) {
+    const res = await axios.get(`${omdbSearchURL}${title}`)
+    return res.data
+}
+
+export async function searchMovieId(movieID) {
+    const res = await axios.get(`${omdbSearchIdURL}${movieID}`)
+    return res.data
+}
+
+export async function reviewMovie(fields) {
+    const res = await axios.post(reviewsURL, {fields}, config)
+    return res.data
+}
+
+export async function getReviews(id) {
+    const res = await axios.get(`${airtableURL}/${id}`, config)
+    return res.data
+}
 

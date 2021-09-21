@@ -5,6 +5,7 @@ import AllMovies from './components/AllMovies';
 import SubmitMovie from './components/SubmitMovie';
 import MovieDetails from './components/MovieDetails';
 import Future from './images/future.png'
+import SubmitReview from './components/SubmitReview'
 
 function App() {
 
@@ -19,11 +20,14 @@ function App() {
       <Route exact path='/movies'>
         <AllMovies />
       </Route>
-      <Route path='/movies/:id'>
+      <Route exact path='/movies/:id'>
         <MovieDetails />
       </Route>
       <Route path ='/new'>
         <SubmitMovie />
+      </Route>
+      <Route path ='/movies/:id/review'>
+        <SubmitReview />
       </Route>
     </div>
   );

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { fetchMovie } from '../services'
 import Details from './Details'
 import Vote from './Vote'
+import Reviews from './Reviews'
 
 export default function MovieDetails() {
     const { id } = useParams()
@@ -11,6 +12,8 @@ export default function MovieDetails() {
     useEffect(() => {
         const getMovie = async() => {
             setMovie(await fetchMovie(id))
+            // const temp = await fetchMovie(id)
+            // console.log(temp)
         }
         getMovie()
     }, [id])
@@ -18,7 +21,8 @@ export default function MovieDetails() {
     return (
         <div>
             <Details title={movie.fields?.title} />
-            <Vote id={id}/>
+            <Vote id={id} />
+            <Reviews id={id} />
         </div>
     )
 }

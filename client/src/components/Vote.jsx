@@ -42,7 +42,7 @@ export default function Vote(props) {
         }
         
         await voteMovie(props.id, fields)
-        history.push(`/movies/${props.id}`)
+        history.push(`/movies/${props.id}/review`)
     }
 
     const downVoteHandler = async() => {
@@ -58,7 +58,7 @@ export default function Vote(props) {
         }
 
         await voteMovie(props.id, fields)
-        history.push(`/movies/${props.id}`)
+        history.push(`/movies/${props.id}/review`)
     }
 
     return (
