@@ -35,7 +35,7 @@ nav {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
   margin: 20px;
   width: 200px;
   height: 350px;
@@ -57,4 +57,26 @@ img {
 
 .nav-links:hover {
   color: #FFC9FF;
+}
+
+.rank {
+  color: #160932;
+  background-color: #FFA671;
+  font-weight: bold;
+  font-size: 2em;
+  border: 2px solid #FFA671;
+  border-radius: 50px;
+  width: 60px;
+  opacity: .95;
+  margin: 5px;
+  padding: 5px;
+}
+
+.details {
+  background-color: #640E7D;
+  color: #D1FDFF;
+  font-weight: bold;
+  padding: 20px;
+  font-size: 1.2em;
+  opacity: .75;
 }

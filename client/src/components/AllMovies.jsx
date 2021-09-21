@@ -30,14 +30,15 @@ export default function AllMovies() {
 
     return (
         <div className='movie-container flex-col' >
-            {movies.map(movie => {
+            {movies.map((movie, i) => {
                 return (
                     <Link to={`/movies/${movie.id}`} key={movie.id}>
-                    <div style={{backgroundImage: `url(${movie.fields?.poster})`, backgroundRepeat: 'no-repeat', backgroundSize:`contain`}} className='movie-card font-rad'>
-                        
-                            {/* <img src={movie.fields?.poster} alt={movie.fields?.name} key={movie.id} /> */}
-                        <div className='flex-column jusitfy-self-end'>
-                            {movie.fields?.title}, {movie.fields?.year}, {movie.fields?.votes}
+                    <div style={{backgroundImage: `url(${movie.fields?.poster})`, backgroundRepeat: 'no-repeat', backgroundSize:`contain`}} className='flex-col jusitfy-end movie-card font-rad'>
+                        <div className='rank'>
+                            <h1>#{i+1}</h1>
+                        </div>
+                        <div className='details'>
+                            <h3>{movie.fields?.title}, {movie.fields?.year}</h3>
                         </div>
                     </div>
                     </Link>
