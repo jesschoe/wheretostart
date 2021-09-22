@@ -48,7 +48,7 @@ Airtable is returning the data for this base as follows:
 - Vote thumbs up or thumbs down on a movie and update top 10 rankings
 - Form to submit new movie recommendation, retrieve movie's data from OMDB API, and post to Airtable API.
 - Utilize React Router to link and display components
-- Style using Tailwind and include responsive design
+- Style using flexbox and include responsive design
 
 #### PostMVP
 
@@ -60,12 +60,12 @@ Airtable is returning the data for this base as follows:
 
 | Day     | Deliverable                                | Status   |
 | ------- | ------------------------------------------ | -------- |
-| Sept 17 | Approval / Airtable Setup / Create Routes  | incomplete |
-| Sept 18 | Create MVP Components                      | incomplete |
-| Sept 19 | Complete MVP Components / Basic Styling    | incomplete |
-| Sept 20 | Complete CSS Components                    | incomplete |
-| Sept 21 | Post MVP: Review Component                 | incomplete |
-| Sept 22 | Continue Post MVP / Advanced Styling       | incomplete |
+| Sept 17 | Approval / Airtable Setup / Create Routes  | Complete |
+| Sept 18 | Create MVP Components                      | Complete |
+| Sept 19 | Complete MVP Components / Basic Styling    | Complete |
+| Sept 20 | Complete CSS Components                    | Complete |
+| Sept 21 | Post MVP: Review Component                 | Complete |
+| Sept 22 | Continue Post MVP / Advanced Styling       | Complete |
 | Sept 23 | Post MVP: Add Category / Clean up code     | incomplete |
 | Sept 24 | Presentation                               | incomplete |
 
@@ -74,20 +74,21 @@ Airtable is returning the data for this base as follows:
 | Component                 | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------------- | :------: | :------------: | :-----------: | :---------: |
 | Proposal                  |    H     |      2hrs      |      2hrs     |         |
-| Airtable setup            |    H     |      1hr       |            |          |
-| Set up Routes/Components  |    H     |      2hr       |            |          |
-| Set up/test all API calls |    H     |      3hrs      |           |         |
-| Create top10 component    |    H     |      3hrs      |           |         |
-| Create details component  |    H     |      3hr       |           |         |
-| Create submit component   |    H     |      3hrs      |           |         |
-| Structure/Basic styling   |    H     |      3hrs      |            |         |
+| Airtable setup            |    H     |      1hr       |      2hrs      |          |
+| Set up Routes/Components  |    H     |      2hr       |      1hr      |          |
+| Set up/test all API calls |    H     |      3hrs      |      2hrs     |         |
+| Create top10 component    |    H     |      3hrs      |      3hrs     |         |
+| Create details component  |    H     |      3hr       |      2hrs     |         |
+| Create submit component   |    H     |      3hrs      |      2hrs     |         |
+| Create vote component     |    H     |      3hrs      |      3hrs     |         |
+| Structure/Basic styling   |    H     |      3hrs      |      2hrs      |         |
 | CSS Components            |    H     |      3hrs      |            |          |
-| Create Review Component   |    M     |      5hrs      |           |         |
-| Edit/Delete Reviews       |    L     |      5hrs      |            |          |
+| Create Review Component   |    M     |      5hrs      |      5hrs     |         |
+| Edit/Delete Reviews       |    L     |      5hrs      |      3hrs      |          |
 | Style Review Component    |    M     |      3hrs      |            |          |
-| Advanced CSS (Carousel)   |    L     |      3hrs      |            |          |
+| Advanced CSS              |    L     |      3hrs      |            |          |
 | Add Add Category          |    L     |      3hrs      |            |          |
-| Total                     |    H     |      39hrs     |          |        |
+| Total                     |    H     |      47hrs     |          |        |
 
 ## SWOT Analysis
 
