@@ -5,11 +5,14 @@
   text-align: center;
   background-image: linear-gradient(#160932, #F35EFF, #1871C2, #FFEBFF);
   padding: 0px;
-  
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 Link {
   margin: 5px;
+  text-decoration: none;
 }
 
 nav {
@@ -22,13 +25,26 @@ nav {
   font-size: 1em;
 }
 
+.nav-links {
+  text-decoration: none;
+  color: #F35EFF;
+  margin: 0 10px;
+  font-size: .8;
+  font-weight: 400;
+}
+
+.nav-links:hover {
+  color: #FFC9FF;
+}
+
 footer {
   height: 2em;
   background-color: #160932;
 }
 
 .site-name {
-  font-size: 1.3em;
+  font-size: 1em;
+  margin: 0 0 -20px 0;
 }
 
 .movie-container {
@@ -39,28 +55,37 @@ footer {
 }
 
 .movie-card {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 20px;
   width: 200px;
-  height: 350px;
+  height: 330px;
+  background-color: #160932;
+  transform: skewY(-7deg);
+  box-shadow: 0 8px 6px -6px black;
 }
-div {
-  /* border: 1px solid white; */
+
+.details {
+  /* background-color: #640E7D; */
+  color: #D1FDFF;
+  font-weight: bold;
+  font-size: 1em;
+  min-height: 50px;
 }
+
 .details-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px;
-  background-color: #FFC9FF;
+  background-color: #160932;
+  color:#03e9f4;
   opacity: .8;
 }
 
 .movie-detail {
-  width: 450px;
+  
   text-align: left;
   margin: 10px;
 }
@@ -78,30 +103,17 @@ img {
   margin: 0 auto;
 }
 
-.nav-links:hover {
-  color: #FFC9FF;
-}
-
 .rank {
   color: #160932;
   background-color: #FFA671;
   font-weight: bold;
-  font-size: 2em;
-  border: 2px solid #FFA671;
+  font-size: .7em;
   border-radius: 50px;
   width: 60px;
   opacity: .95;
-  margin: 5px;
-  padding: 5px;
-}
-
-.details {
-  background-color: #640E7D;
-  color: #D1FDFF;
-  font-weight: bold;
-  padding: 20px;
-  font-size: 1.2em;
-  opacity: .75;
+  margin: -15px;
+  text-decoration: none;
+  transform: skewY(7deg)
 }
 
 .search-form {
@@ -116,3 +128,31 @@ form {
   margin: 10px;
 }
 
+.reviews {
+  color: #FFC9FF;
+  background-color: #160932;
+  margin: 10px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-name {
+  font-size: .8em;
+  font-style: italic;
+  text-align: right;
+  margin: 20px;
+}
+
+.delete-button {
+  width: 80px;
+  align-self:flex-end;
+  margin: 5px;
+  background: linear-gradient(90deg, transparent, #03e9f4, transparent);
+  border: none;
+}
+
+.delete-button:hover {
+  background: linear-gradient(270deg, #03e9f4, transparent, #03e9f4);
+  color: #03e9f4;
+}

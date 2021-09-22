@@ -1,0 +1,91 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#160932, #243b55);
+}
+
+.review-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    padding: 30px;
+    transform: translate(-50%, -50%);
+    background: #160932;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px #160932;
+    border-radius: 10px;
+}
+
+.review-box h4 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.review-box .user-box {
+    position: relative;
+}
+
+.review-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.review-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.review-box .user-box input:focus ~ label,
+.review-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+.review-box a:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+}
+
+.review-box a span {
+    position: absolute;
+    display: block;
+}
+
+.vote-submit {
+
+    background: linear-gradient(90deg, transparent, #03e9f4, transparent);
+    border: none;
+
+}
+
+.vote-submit:hover {
+    background: linear-gradient(270deg, #03e9f4, transparent, #03e9f4);
+    color: #03e9f4;
+}

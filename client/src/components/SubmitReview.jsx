@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import { useParams, useHistory } from 'react-router'
 import { fetchMovie, reviewMovie } from '../services'
+import ReviewForm from './ReviewForm'
 
 
 export default function SubmitReview() {
     const [reviews, setReviews] = useState()
+    const [username, setUsername] = useState('anonymous')
     const { id } = useParams()
     const history = useHistory()
 
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-
+        console.log('reviews', reviews)
+        console.log('username', username)
         const data = await fetchMovie(id)
         let title
         if (data.fields.reviews?.length) {
@@ -19,30 +22,25 @@ export default function SubmitReview() {
         } else {
             title = `${data.fields.title}0`
         }
-        
+
         const fields = {
             "title": `${title}`,
             "Movies": [`${id}`],
-            "review": `${e.target[0].defaultValue}`
+            "review": `${reviews}`,
+            "username": `${username}`
         }
         await reviewMovie(fields)
         history.push(`/movies/${id}`)
     }
 
     return (
-        <div className='font-rad'>
-            Would you like to submit a review?
-            <form onSubmit={handleSubmit}>
-            <label>Review
-                <input 
-                    type='text' 
-                    value={reviews} 
-                    onChange={(e)=>setReviews(e.target.value)} 
-                />
-            </label>
-            <button>Submit!</button>
-        </form>
-        </div>
+        <ReviewForm 
+            handleSubmit={handleSubmit} 
+            reviews={reviews} 
+            setReviews={setReviews}
+            username={username}
+            setUsername={setUsername}
+        />
     )
 }
 

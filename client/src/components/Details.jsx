@@ -15,9 +15,9 @@ export default function MovieDetails(props) {
 
     return (
         <div className='details-container' >
-            <div>
-            {details?.Title}
-            </div>
+            <h2>
+                {details?.Title}
+            </h2>
             <div className='img-div' style={{backgroundImage: `url(${details?.Poster})`, height: '200px', backgroundRepeat: 'no-repeat', backgroundSize:`contain`}}>
                 
             </div>
