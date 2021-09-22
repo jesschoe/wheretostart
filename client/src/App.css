@@ -3,16 +3,33 @@
 .App {
   margin: 0px;
   text-align: center;
-  background-image: linear-gradient(#160932, #F35EFF, #1871C2, #FFEBFF);
+  background: linear-gradient(157deg, #1871C2, #160932, #F35EFF, #1871C2),
+    linear-gradient(127deg, #FFEBFF, #1871C2, #9524C7),
+    linear-gradient(17deg, #640E7D, #FFEBFF);
   padding: 0px;
   font-family: 'Rajdhani', sans-serif;
   font-size: 18px;
   font-weight: 700;
+
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.app-body {
+  height: 100vh;
+  overflow: auto;
 }
 
 Link {
   margin: 5px;
-  text-decoration: none;
 }
 
 nav {
@@ -23,6 +40,8 @@ nav {
   background-color: #160932;
   color: #F35EFF;
   font-size: 1em;
+  padding: 0 0 10px 0;
+  flex: 0 0 auto;
 }
 
 .nav-links {
@@ -40,6 +59,8 @@ nav {
 footer {
   height: 2em;
   background-color: #160932;
+  flex: 0 0 auto;
+  height: 30px;
 }
 
 .site-name {
@@ -62,16 +83,22 @@ footer {
   width: 200px;
   height: 330px;
   background-color: #160932;
-  transform: skewY(-7deg);
-  box-shadow: 0 8px 6px -6px black;
+  transform: skewY(-5deg);
+  box-shadow: 0 8px 6px -3px black;
 }
 
 .details {
-  /* background-color: #640E7D; */
+  background-color: #640E7D;
   color: #D1FDFF;
   font-weight: bold;
-  font-size: 1em;
-  min-height: 50px;
+  font-size: .8em;
+  transform: skewY(5deg);
+  margin: 0 0 10px 0;
+  opacity: .8;
+}
+
+.details:hover {
+  color: #03e9f4;
 }
 
 .details-container {
@@ -82,16 +109,27 @@ footer {
   background-color: #160932;
   color:#03e9f4;
   opacity: .8;
+  transform: skewY(-5deg);
+  box-shadow: 0 8px 6px -3px black;
+}
+
+.details-container h2 {
+  transform: skewY(5deg);
 }
 
 .movie-detail {
-  
+  transform: skewY(5deg);
   text-align: left;
   margin: 10px;
 }
 
 .img-div {
+  transform: skewY(5deg);
   width: 150px;
+}
+
+.vote-div {
+  transform: skewY(5deg);
 }
 
 img {
@@ -100,26 +138,16 @@ img {
 
 .main-img {
   width: 100%;
-  margin: 0 auto;
-}
-
-.rank {
-  color: #160932;
-  background-color: #FFA671;
-  font-weight: bold;
-  font-size: .7em;
-  border-radius: 50px;
-  width: 60px;
-  opacity: .95;
-  margin: -15px;
-  text-decoration: none;
-  transform: skewY(7deg);
 }
 
 .search-form {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  color:#03e9f4;
+  background-color: #160932;
+  opacity: .9;
 }
 
 form {
@@ -128,13 +156,34 @@ form {
   margin: 10px;
 }
 
+.search-input {
+  width: 200px;
+  padding: 5px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.1em;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-end;
+  align-items: flex-end;
+}
+
+.reviews-container h3 {
+  margin: 10px;
+  font-family: 'Orbitron', sans-serif;
+}
+
 .reviews {
   color: #FFC9FF;
   background-color: #160932;
   margin: 10px;
-  border-radius: 20px;
+  width: 60%;
   display: flex;
   flex-direction: column;
+  opacity: .9;
+  box-shadow: 0 8px 6px -3px black;
 }
 
 .review-name {
@@ -150,10 +199,48 @@ button {
   margin: 5px;
   background: linear-gradient(90deg, transparent, #03e9f4, transparent);
   border: none;
+  font-family: 'Orbitron', sans-serif;
 }
 
 button:hover {
   background: linear-gradient(270deg, #03e9f4, transparent, #03e9f4);
   color: #03e9f4;
+  font-family: 'Orbitron', sans-serif;
 }
 
+i {
+  margin: 15px;
+}
+
+i:hover {
+  color: white;
+}
+
+.rank {
+  color: #160932;
+  background-color: #FFA671;
+  font-weight: bold;
+  font-size: 1.1em;
+  width: 70px;
+  opacity: .95;
+  margin: -15px;
+  transform: skewY(-7deg);
+  box-shadow: 5px 5px 5px;
+}
+
+.rank h3 {
+  transform: skewY(7deg);
+}
+
+@media only screen and (min-width: 500px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #160932;
+    color: #F35EFF;
+    font-size: 1em;
+    padding: 0 0 10px 0;
+    flex: 0 0 auto;
+  }
+}

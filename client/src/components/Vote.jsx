@@ -37,9 +37,9 @@ export default function Vote(props) {
     }
 
     return (
-        <div>
-            <button onClick={upVoteHandler}><i className="far fa-thumbs-up fa-2x m-4"></i></button>
-            <button onClick={downVoteHandler}><i className="far fa-thumbs-down fa-2x"></i></button>
+        <div className='vote-div'>
+            <i className="far fa-thumbs-up fa-2x" onClick={upVoteHandler}></i>
+            <i className="far fa-thumbs-down fa-2x" onClick={downVoteHandler}></i>
         </div>
     )
 }

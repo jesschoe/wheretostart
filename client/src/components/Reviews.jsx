@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { getReviews, deleteReview } from '../services'
+import { useHistory } from 'react-router'
 
 export default function Reviews(props) {
     const [reviews, setReviews] = useState([])
-
+    const history = useHistory()
     
     useEffect(() => {
         console.log('ids', props.reviewIds)
@@ -23,18 +24,19 @@ export default function Reviews(props) {
     const handleDelete = async(id) => {  
         console.log(id)
         await deleteReview(id)
+        history.push(`./movies/${id}`)
     }
 
     return (
         <div className='reviews-container'>
-            REVIEWS
+            <h3>REVIEWS</h3>
             {reviews?.map((review) => 
-                    <div className='reviews' key={review.id}>
-                        <p className='review-text'>{review.review}</p>
-                        <p className='review-name'>{review.username}</p>
-                        <button onClick={()=>handleDelete(review.id)} className='delete-button'>delete</button>
-                    </div>
-                ) 
+                <div className='reviews' key={review.id}>
+                    <p className='review-text'>{review.review}</p>
+                    <p className='review-name'>{review.username}</p>
+                    <button onClick={()=>handleDelete(review.id)} className='delete-button'>delete</button>
+                </div>
+            ) 
             }
         </div>
     )

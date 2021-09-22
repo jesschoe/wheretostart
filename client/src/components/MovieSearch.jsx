@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router'
 import Form from "./Form"
-import { searchMovieId, searchMovies, submitMovie } from '../services'
+import { fetchMovies, searchMovieId, searchMovies, submitMovie } from '../services'
 
-export default function SubmitMovie() {
+export default function MovieSearch() {
     const history = useHistory()
     const [title, setTitle] = useState('')
     const [movieList, setMovieList] = useState([])
@@ -15,16 +15,15 @@ export default function SubmitMovie() {
     }
 
     const handleClick = value => async() => {
-        console.log('value', value)
         const res = await searchMovieId(value)
-        console.log('res', res)
+        const movie = await fetchMovies()
         
         const fields = {
             title: res.Title,
             year: res.Year,
             cast: res.Actors,
             plot: res.Plot,
-            votes: 0,
+            votes: 1,
             poster: res.Poster,
             director: res.Director
         }
@@ -34,8 +33,8 @@ export default function SubmitMovie() {
     }
 
     return (
-        <div className='h-screen search-form'>
-            <div className='font-rad text-lg'>
+        <div>
+            <div className='search-form'>
                 <h3>Search for another movie to recommend!</h3>
                 <Form 
                     title={title}
@@ -44,7 +43,7 @@ export default function SubmitMovie() {
                 />
             </div>
             <div className='movie-container'>
-                {movieList.map(movie => {
+                {movieList?.map(movie => {
                     return (
                             <div style=
                                 {{backgroundImage: `url(${movie?.Poster})`, 
@@ -52,10 +51,13 @@ export default function SubmitMovie() {
                                 backgroundSize:`contain` }} 
                                 key={movie?.imdbID} 
                                 onClick={handleClick(`${movie?.imdbID}`)} 
-                                className='movie-card font-rad'
+                                className='movie-card'
                             >
-                                <div className='flex-column jusitfy-self-end'>
-                                    {movie?.Title}, {movie?.Year}
+                                <div>
+
+                                </div>
+                                <div className='details'>
+                                    <p>{movie?.Title}, {movie?.Year}</p>
                                 </div>
                             </div>
                         

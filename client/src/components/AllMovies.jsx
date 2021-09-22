@@ -31,14 +31,18 @@ export default function AllMovies() {
         <div className='movie-container' >
             {movies.map((movie, i) => {
                 return (
-                    <Link to={`/movies/${movie.id}`} key={movie.id}>
-                    <div style={{backgroundImage: `url(${movie.fields?.poster})`, backgroundRepeat: 'no-repeat', backgroundSize:`contain`}} className='movie-card font-rad'>
+                    <Link to={`/movies/${movie.id}`} key={movie.id} style={{ textDecoration: 'none' }}>
+                    <div 
+                        style={{backgroundImage: `url(${movie.fields?.poster})`, 
+                            backgroundRepeat: 'no-repeat', 
+                            backgroundSize:`contain`}} 
+                        className='movie-card'
+                    >
                         <div className='rank'>
-                            <h1>#{i+1}</h1>
+                            <h3>#{i+1}</h3>
                         </div>
                         <div className='details'>
                             <h3>{movie.fields?.title} \{movie.fields?.year}\</h3>
-                            
                         </div>
                     </div>
                     </Link>
