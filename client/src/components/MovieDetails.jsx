@@ -19,7 +19,7 @@ export default function MovieDetails() {
     return (
         <div>
             <Details title={movie.fields?.title} id={id}/>
-            <Reviews reviewIds={movie.fields?.reviews} /> 
+            <Reviews reviewIds={movie.fields?.reviews} id={id}/> 
         </div>
     )
 }

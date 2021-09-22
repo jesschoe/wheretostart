@@ -26,7 +26,7 @@ export default function ReviewForm(props) {
                         onChange={(e)=>props.setReviews(e.target.value)} />
                     <label>Review</label>
                 </div>
-                <button className='vote-submit font-orb'>
+                <button className='font-orb'>
                     <span></span>
                     <span></span>
                     <span></span>

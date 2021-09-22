@@ -113,7 +113,7 @@ img {
   opacity: .95;
   margin: -15px;
   text-decoration: none;
-  transform: skewY(7deg)
+  transform: skewY(7deg);
 }
 
 .search-form {
@@ -144,7 +144,7 @@ form {
   margin: 20px;
 }
 
-.delete-button {
+button {
   width: 80px;
   align-self:flex-end;
   margin: 5px;
@@ -152,7 +152,8 @@ form {
   border: none;
 }
 
-.delete-button:hover {
+button:hover {
   background: linear-gradient(270deg, #03e9f4, transparent, #03e9f4);
   color: #03e9f4;
 }
+

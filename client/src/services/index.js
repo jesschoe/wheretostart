@@ -36,6 +36,21 @@ export async function submitMovie(fields) {
     return res.data
 }
 
+export async function getReviews(id) {
+    const res = await axios.get(`${airtableURL}/${id}`, config)
+    return res.data
+}
+
+export async function reviewMovie(fields) {
+    const res = await axios.post(reviewsURL, {fields}, config)
+    return res.data
+}
+
+export async function deleteReview(id) {
+    const res = await axios.delete(`${airtableURL}/${id}`, config)
+    return res.data
+}
+
 export async function fetchMovieDetails(movieTitle) {
     const res = await axios.get(`${omdbURL}${movieTitle}`)
     return res.data
@@ -51,13 +66,7 @@ export async function searchMovieId(movieID) {
     return res.data
 }
 
-export async function reviewMovie(fields) {
-    const res = await axios.post(reviewsURL, {fields}, config)
-    return res.data
-}
 
-export async function getReviews(id) {
-    const res = await axios.get(`${airtableURL}/${id}`, config)
-    return res.data
-}
+
+
 
