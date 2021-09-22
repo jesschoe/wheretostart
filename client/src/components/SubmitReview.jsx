@@ -1,22 +1,13 @@
 import { useState } from 'react'
 import { useParams, useHistory } from 'react-router'
-import { fetchMovie } from '../services'
-import { reviewMovie } from '../services'
+import { fetchMovie, reviewMovie } from '../services'
 
 
 export default function SubmitReview() {
     const [reviews, setReviews] = useState()
     const { id } = useParams()
     const history = useHistory()
-    // const [movie, setMovie] = useState([])
 
-    // useEffect(() => {
-    //     const getMovie = async() => {
-    //         const data = await fetchMovie(id)
-    //         console.log(data)
-    //     }
-    //     getMovie()
-    // }, [])
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -28,8 +19,7 @@ export default function SubmitReview() {
         } else {
             title = `${data.fields.title}0`
         }
-
-        console.log(e.target[0].defaultValue)
+        
         const fields = {
             "title": `${title}`,
             "Movies": [`${id}`],

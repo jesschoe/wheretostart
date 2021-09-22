@@ -9,7 +9,6 @@ export default function AllMovies() {
     useEffect(() => {
         const setAllMovies = async() => {
         let allMovies = await fetchMovies()
-            console.log(allMovies)
 
         function compare( mov1, mov2 ) {
             if ( mov1.fields.votes < mov2.fields.votes ){

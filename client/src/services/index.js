@@ -27,7 +27,7 @@ export async function fetchMovie(id) {
 }
 
 export async function voteMovie(id, fields) {
-    const res = await axios.put(`${airtableURL}/${id}`, {fields}, config)
+    const res = await axios.patch(`${airtableURL}/${id}`, {fields}, config)
     return res.data
 }
 

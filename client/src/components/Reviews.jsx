@@ -2,39 +2,26 @@ import { useState, useEffect } from 'react'
 import { getReviews } from '../services'
 
 export default function Reviews(props) {
-    // const [reviewComments, setReviewComments] = useState([])
+    const [reviews, setReviews] = useState([])
     
+    useEffect(() => {
+        if (props.reviewIds) {
+            props.reviewIds.map(async (reviewId) => {
+                const data = await getReviews(reviewId)
+                setReviews((prevState) => [...prevState,data.fields.review])
+        })}
+        
+    }, [props.reviewIds])
 
-    // useEffect(() => {
-    //     const reviewArr = []
-    //     // console.log(props.ids)
-
-    //         if (props.ids) {
-    //             console.log(props.ids)
-    //             props.ids.map(async (reviewId) => {
-    //                 const data = await getReviews(reviewId)
-    //                 reviewArr.push(data.fields.review)
-    //                 // console.log('reviews:', reviewArr)
-                
-    //         })
-    //         setReviewComments(reviewArr) 
-    //     }
-
-    // }, [props.ids])
-
-   
     return (
         <div>
             REVIEWS
-            {console.log(props.reviewComments)}
-            {props.reviewComments.map((comment, i) => 
+            {reviews?.map((review, i) => 
                     <div key={i}>
-                        
-                        <p>{comment}</p>
+                        <p>{review}</p>
                     </div>
                 ) 
             }
-            
         </div>
     )
 }
