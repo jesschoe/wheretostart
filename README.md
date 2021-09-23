@@ -74,18 +74,18 @@ Airtable is returning the data for this base as follows:
 | Component                 | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------------- | :------: | :------------: | :-----------: | :---------: |
 | Proposal                  |    H     |      2hrs      |      2hrs     |         |
-| Airtable setup            |    H     |      1hr       |      2hrs      |          |
+| Airtable setup            |    H     |      1hr       |      2hrs     |          |
 | Set up Routes/Components  |    H     |      2hr       |      1hr      |          |
 | Set up/test all API calls |    H     |      3hrs      |      2hrs     |         |
 | Create top10 component    |    H     |      3hrs      |      3hrs     |         |
 | Create details component  |    H     |      3hr       |      2hrs     |         |
 | Create submit component   |    H     |      3hrs      |      2hrs     |         |
 | Create vote component     |    H     |      3hrs      |      3hrs     |         |
-| Structure/Basic styling   |    H     |      3hrs      |      2hrs      |         |
+| Structure/Basic styling   |    H     |      3hrs      |      2hrs     |         |
 | CSS Components            |    H     |      3hrs      |            |          |
 | Create Review Component   |    M     |      5hrs      |      5hrs     |         |
-| Edit/Delete Reviews       |    L     |      5hrs      |      3hrs      |          |
-| Style Review Component    |    M     |      3hrs      |            |          |
+| Edit/Delete Reviews       |    L     |      5hrs      |      3hrs     |          |
+| Style Review Component    |    M     |      3hrs      |      2hrs     |          |
 | Advanced CSS              |    L     |      3hrs      |            |          |
 | Add Add Category          |    L     |      3hrs      |            |          |
 | Total                     |    H     |      47hrs     |          |        |

@@ -28,7 +28,7 @@ export default function MovieSearch() {
         }
 
         await submitMovie(fields)
-        history.push(`/movies`)
+        // history.push(`/movies/${movie.id}/review`)
     }
 
     return (
@@ -42,6 +42,8 @@ export default function MovieSearch() {
                 />
             </div>
             <div className='movie-container'>
+                <h5>Select the movie you'd like to add to the list
+                Your selection will automatically have 1 vote</h5>
                 {movieList?.map(movie => {
                     return (
                             <div style=

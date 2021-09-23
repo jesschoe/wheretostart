@@ -5,16 +5,12 @@
   text-align: center;
   background: linear-gradient(157deg, #1871C2, #160932, #F35EFF, #1871C2),
     linear-gradient(127deg, #FFEBFF, #1871C2, #9524C7),
-    linear-gradient(17deg, #640E7D, #FFEBFF);
+    linear-gradient(17deg, #640E7D, #160932);
   padding: 0px;
   font-family: 'Rajdhani', sans-serif;
   font-size: 18px;
-  font-weight: 700;
-
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
   height: 100vh;
   top: 0;
   right: 0;
@@ -37,7 +33,7 @@ nav {
   flex-direction: column;
   justify-content: space-between;
   font-family: 'Orbitron', sans-serif;
-  background-color: #160932;
+  background-color: transparent;
   color: #F35EFF;
   font-size: 1em;
   padding: 0 0 10px 0;
@@ -49,7 +45,6 @@ nav {
   color: #F35EFF;
   margin: 0 10px;
   font-size: .8;
-  font-weight: 400;
 }
 
 .nav-links:hover {
@@ -58,9 +53,15 @@ nav {
 
 footer {
   height: 2em;
-  background-color: #160932;
+  background-color: transparent;
   flex: 0 0 auto;
   height: 30px;
+}
+
+footer img {
+  width: 20px;
+  margin: 5px;
+  color: white;
 }
 
 .site-name {
@@ -75,6 +76,10 @@ footer {
   overflow: auto;
 }
 
+.movie-container h5 {
+  color: white;
+  margin: 20px;
+}
 .movie-card {
   display: flex;
   flex-direction: column;
@@ -132,8 +137,9 @@ footer {
   transform: skewY(5deg);
 }
 
-.main-img-container h3 {
+.main-img-container h4 {
     color: white;
+    margin: 20px;
 }
 
 .main-img {
@@ -237,7 +243,7 @@ i:hover {
     display: flex;
     justify-content: space-between;
     font-family: 'Orbitron', sans-serif;
-    background-color: #160932;
+    background-color: transparent;
     color: #F35EFF;
     font-size: 1em;
     padding: 0 0 10px 0;
