@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Slider.css'
 import { fetchMovies } from '../../services'
+import Swipe from 'react-easy-swipe';
 
 export default function Slider() {
     const [slideIndex, setSlideIndex] = useState(1)
     const [ movies, setMovies ] = useState([])
+    const [xPosition, setXPosition] = useState()
 
     useEffect(() => {
         const setAllMovies = async() => {
@@ -41,6 +43,26 @@ export default function Slider() {
         }
     }
 
+    function onSwipeStart(event) {
+        console.log('Start swiping...', event);
+    }
+    
+    function onSwipeMove(position, event) {
+        console.log(`Moved ${position.x} pixels horizontally`, event);
+        console.log(`Moved ${position.y} pixels vertically`, event);
+        setXPosition(position.x)
+        
+    }
+    
+    function onSwipeEnd(position, event) {
+        console.log(position.x, event);
+        if (xPosition < 0) {
+            prevSlide()
+        } else {
+            nextSlide()
+        }
+    }
+
     return (
         <div className='slider-container'>
             {movies.map((movie,i) => {
@@ -49,26 +71,34 @@ export default function Slider() {
                     
                     <div key={movie.id} className={slideIndex === i + 1 ? 'slide active' : 'slide'}>
                         <Link to={`/movies/${movie.id}`} key={movie.id} style={{ textDecoration: 'none' }}>
-                            <div 
-                                style={{backgroundImage: `url(${movie.fields?.poster})`, 
-                                    backgroundRepeat: 'no-repeat', 
-                                    backgroundSize:`contain`}} 
-                                className='movie-card'
+                            <Swipe
+                                onSwipeStart={onSwipeStart}
+                                onSwipeMove={onSwipeMove}
+                                onSwipeEnd={onSwipeEnd}
                             >
-                                <div className='rank'>
-                                    <h3>#{i+1}</h3>
+                                <div 
+                                    style={{backgroundImage: `url(${movie.fields?.poster})`, 
+                                        backgroundRepeat: 'no-repeat', 
+                                        backgroundSize:`contain`}} 
+                                    className='movie-card'
+                                >
+                                    <div className='rank'>
+                                        <h3>#{i+1}</h3>
+                                    </div>
+                                    <div className='details'>
+                                        <h3>{movie.fields?.title} \{movie.fields?.year}\</h3>
+                                    </div>
                                 </div>
-                                <div className='details'>
-                                    <h3>{movie.fields?.title} \{movie.fields?.year}\</h3>
-                                </div>
-                            </div>
+                            </Swipe>
                         </Link>
                     </div>
                     
                 )
             })}
 
+
             <i className="fas fa-chevron-right arrow next" onClick={nextSlide}></i>
+            
             <i className="fas fa-chevron-left arrow prev" onClick={prevSlide}></i> 
         </div>
     )
