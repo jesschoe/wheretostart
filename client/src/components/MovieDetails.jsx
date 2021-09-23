@@ -2,12 +2,12 @@ import { useParams } from 'react-router'
 import { useState, useEffect } from 'react'
 import { fetchMovie } from '../services'
 import Details from './Details'
-import Reviews from './Reviews'
+import AllReviews from '../components/Reviews/AllReviews'
 
 export default function MovieDetails() {
     const { id } = useParams()
     const [ movie, setMovie ] = useState({})
-    console.log('params', id)
+    
     useEffect(() => {
         const getMovie = async() => {
             const movieTitle = await fetchMovie(id)
@@ -19,7 +19,7 @@ export default function MovieDetails() {
     return (
         <div>
             <Details title={movie.fields?.title} id={id} />
-            <Reviews reviewIds={movie.fields?.reviews} /> 
+            <AllReviews reviewIds={movie.fields?.reviews} /> 
         </div>
     )
 }

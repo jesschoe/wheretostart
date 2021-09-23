@@ -181,7 +181,6 @@ form {
   width: 200px;
   padding: 5px;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 1.1em;
 }
 
 .reviews-container {
@@ -279,4 +278,24 @@ i:hover {
   .app-body {
     max-width: 1050px;
   }
+}
+
+input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1.1em;
+  color: white;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  background: transparent;
+}
+
+label {
+  text-align: left;
+  font-size: 16px;
+  color: white;
+  color: #03e9f4;
+  font-size: 12px;
 }

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import AllMovies from './components/AllMovies';
 import MovieSearch from './components/MovieSearch';
 import MovieDetails from './components/MovieDetails';
-import SubmitReview from './components/SubmitReview'
+import SubmitReview from './components/Reviews/SubmitReview'
 import Slider from './components/Carousel/Slider'
 import GitHub from './images/GitHub.png'
 

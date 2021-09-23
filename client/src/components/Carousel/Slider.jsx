@@ -7,7 +7,6 @@ export default function Slider() {
     const [slideIndex, setSlideIndex] = useState(1)
     const [ movies, setMovies ] = useState([])
 
-    
     useEffect(() => {
         const setAllMovies = async() => {
         let allMovies = await fetchMovies()
@@ -34,7 +33,6 @@ export default function Slider() {
         }
     }
     
-
     const prevSlide = () => {
         if ( slideIndex !== 1) {
             setSlideIndex(slideIndex - 1)
@@ -51,7 +49,6 @@ export default function Slider() {
                     
                     <div key={movie.id} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
                         <Link to={`/movies/${movie.id}`} key={movie.id} style={{ textDecoration: 'none' }}>
-                        {console.log(movie.id, movie.fields.title)}
                             <div 
                                 style={{backgroundImage: `url(${movie.fields?.poster})`, 
                                     backgroundRepeat: 'no-repeat', 

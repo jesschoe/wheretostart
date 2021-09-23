@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { fetchMovies } from '../services/index'
+import { fetchMovies } from '../services'
 
 export default function AllMovies() {
     const [ movies, setMovies ] = useState([])

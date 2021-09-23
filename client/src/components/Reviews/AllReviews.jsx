@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
-import { getReviews, deleteReview } from '../services'
+import { getReviews, deleteReview } from '../../services'
 import { useHistory } from 'react-router'
 
-export default function Reviews(props) {
+export default function AllReviews(props) {
     const [reviews, setReviews] = useState([])
     const history = useHistory()
     
     useEffect(() => {
-        console.log('ids', props.reviewIds)
         if (props.reviewIds) {
             props.reviewIds.map(async (reviewId) => {
                 const data = await getReviews(reviewId)
@@ -22,7 +21,6 @@ export default function Reviews(props) {
     }, [props.reviewIds])
 
     const handleDelete = async(id) => {  
-        console.log(id)
         await deleteReview(id)
         history.push(`./movies/${id}`)
     }

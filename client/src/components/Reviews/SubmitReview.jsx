@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useParams, useHistory } from 'react-router'
-import { fetchMovie, reviewMovie } from '../services'
+import { fetchMovie, reviewMovie } from '../../services'
 import ReviewForm from './ReviewForm'
 
 
@@ -13,8 +13,7 @@ export default function SubmitReview() {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        console.log('reviews', reviews)
-        console.log('username', username)
+        
         const data = await fetchMovie(id)
         let title
         if (data.fields.reviews?.length) {

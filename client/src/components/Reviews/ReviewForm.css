@@ -57,14 +57,6 @@ body {
     font-size: 12px;
 }
 
-/* .review-box .user-box input:focus ~ label,
-.review-box .user-box input:valid ~ label {
-    top: -20px;
-    left: 0;
-    color: #03e9f4;
-    font-size: 12px;
-} */
-
 .review-box a:hover {
     background: #03e9f4;
     color: #fff;
