@@ -73,6 +73,7 @@ footer img {
   flex-flow: row wrap;
   justify-content: center;
   overflow: auto;
+  min-height: 200px;
 }
 
 .movie-container h5 {
@@ -122,10 +123,12 @@ footer img {
 }
 
 .details-container {
-  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 600px;
+  min-height: 500px;
+  min-width: 500px;
   margin: 20px;
   background-color: #160932;
   color:#03e9f4;

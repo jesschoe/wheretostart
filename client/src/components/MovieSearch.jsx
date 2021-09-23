@@ -2,16 +2,20 @@ import { useState } from 'react'
 import { useHistory } from 'react-router'
 import MovieSearchForm from "./MovieSearchForm"
 import { fetchMovies, searchMovieId, searchMovies, submitMovie } from '../services'
+import RingLoader from 'react-spinners/RingLoader'
 
 export default function MovieSearch() {
     const history = useHistory()
     const [title, setTitle] = useState('')
     const [movieList, setMovieList] = useState([])
+    const [loading, setLoading] = useState(false)
 
     const handleSearch = async(e) => {
         e.preventDefault()
+        setLoading(true)
         const data = await searchMovies(title)
         setMovieList(data.Search)
+        setLoading(false)
     }
 
     const handleClick = value => async() => {
@@ -57,7 +61,8 @@ export default function MovieSearch() {
             <h5>Select the movie you'd like to add to the list
                 Your selection will automatically have 1 vote</h5>
             <div className='movie-container'>
-                {movieList?.map(movie => {
+                {loading ? <RingLoader color='#03e9f4' /> : 
+                movieList?.map(movie => {
                     return (
                         <div style=
                             {{backgroundImage: `url(${movie?.Poster})`, 
