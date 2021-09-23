@@ -32,7 +32,6 @@ Link {
 nav {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   font-family: 'Orbitron', sans-serif;
   background-color: transparent;
   color: #F35EFF;
@@ -53,7 +52,6 @@ nav {
 }
 
 footer {
-  height: 2em;
   background-color: transparent;
   flex: 0 0 auto;
   height: 30px;
@@ -85,7 +83,7 @@ footer img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 20px;
+  margin: 60px 30px 30px 30px;
   width: 140px;
   height: 230px;
   background-color: #160932;
@@ -93,6 +91,22 @@ footer img {
   box-shadow: 0 8px 6px -3px black;
 }
 
+.rank {
+  align-self: flex-end;
+  color: #160932;
+  background-color: #FFA671;
+  font-weight: bold;
+  font-size: 1em;
+  width: 60px;
+  opacity: .95;
+  margin: -15px;
+  transform: skewY(10deg);
+  box-shadow: 5px 5px 5px;
+}
+
+.rank h3 {
+  transform: skewY(-10deg);
+}
 .details {
   background-color: #640E7D;
   color: #D1FDFF;
@@ -236,50 +250,6 @@ i:hover {
   color: white;
 }
 
-.rank {
-  color: #160932;
-  background-color: #FFA671;
-  font-weight: bold;
-  font-size: 1em;
-  width: 60px;
-  opacity: .95;
-  margin: -15px;
-  transform: skewY(-7deg);
-  box-shadow: 5px 5px 5px;
-}
-
-.rank h3 {
-  transform: skewY(7deg);
-}
-
-@media only screen and (min-width: 500px) {
-  nav {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Orbitron', sans-serif;
-    background-color: transparent;
-    color: #F35EFF;
-    font-size: 1em;
-    padding: 0 0 10px 0;
-    flex: 0 0 auto;
-  }
-
-  .movie-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 20px;
-    width: 200px;
-    height: 330px;
-    background-color: #160932;
-    transform: skewY(-5deg);
-    box-shadow: 0 8px 6px -3px black;
-  }
-  .app-body {
-    max-width: 1050px;
-  }
-}
-
 input {
   width: 100%;
   padding: 10px 0;
@@ -298,4 +268,45 @@ label {
   color: white;
   color: #03e9f4;
   font-size: 12px;
+}
+
+@media only screen and (min-width: 500px) {
+  .movie-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 80px 40px 40px 40px;
+    width: 200px;
+    height: 330px;
+    background-color: #160932;
+    transform: skewY(-5deg);
+    box-shadow: 0 8px 6px -3px black;
+  }
+  .app-body {
+    max-width: 1050px;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+    margin: -20px 0 20px 0;
+  }
+  
+  footer {
+    height: 50px;
+  }
+  
+  footer img {
+    width: 30px;
+    margin: 10px 0;
+  }
+  
+  .site-name {
+    font-size: 1.2em;
+  }
 }
