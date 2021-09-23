@@ -182,6 +182,7 @@ footer img {
   background-color: #160932;
   opacity: .85;
   max-width: 300px;
+  margin: 30px auto;
 }
 
 form {
