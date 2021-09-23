@@ -9,7 +9,6 @@ export default function ReviewForm(props) {
             <div className="user-box">
                 <input 
                     type="text" 
-                    autoFocus
                     name="" 
                     required=""
                     value={props.username}

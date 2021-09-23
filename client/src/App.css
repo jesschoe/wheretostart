@@ -22,6 +22,7 @@
 .app-body {
   height: 100vh;
   overflow: auto;
+  margin: 0 auto;
 }
 
 Link {
@@ -107,6 +108,7 @@ footer img {
 }
 
 .details-container {
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,13 +139,26 @@ footer img {
   transform: skewY(5deg);
 }
 
-.main-img-container h4 {
+.welcome h4 {
     color: white;
     margin: 20px;
 }
 
+.welcome .veterans {
+  margin: -130px 10px;
+}
+
 .main-img {
   width: 100%;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container h5 {
+  color: white;
 }
 
 .search-form {
@@ -260,5 +275,8 @@ i:hover {
     background-color: #160932;
     transform: skewY(-5deg);
     box-shadow: 0 8px 6px -3px black;
+  }
+  .app-body {
+    max-width: 1050px;
   }
 }

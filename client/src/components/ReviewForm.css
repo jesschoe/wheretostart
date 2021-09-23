@@ -37,10 +37,10 @@ body {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: white;
     margin-bottom: 30px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid white;
     outline: none;
     background: transparent;
 }
@@ -50,18 +50,20 @@ body {
     left: 0;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
-    pointer-events: none;
-    transition: .5s;
-}
-
-.review-box .user-box input:focus ~ label,
-.review-box .user-box input:valid ~ label {
+    color: white;
     top: -20px;
     left: 0;
     color: #03e9f4;
     font-size: 12px;
 }
+
+/* .review-box .user-box input:focus ~ label,
+.review-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+} */
 
 .review-box a:hover {
     background: #03e9f4;

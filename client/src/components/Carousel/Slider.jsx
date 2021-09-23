@@ -46,33 +46,33 @@ export default function Slider() {
     return (
         <div className='slider-container'>
             {movies.map((movie,i) => {
-                console.log(movie.id, movie.fields.title)
+                
                 return (
+                    
                     <div key={movie.id} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
                         <Link to={`/movies/${movie.id}`} key={movie.id} style={{ textDecoration: 'none' }}>
-                    <div 
-                        style={{backgroundImage: `url(${movie.fields?.poster})`, 
-                            backgroundRepeat: 'no-repeat', 
-                            backgroundSize:`contain`}} 
-                        className='movie-card'
-                    >
-                        <div className='rank'>
-                            <h3>#{i+1}</h3>
-                        </div>
-                        <div className='details'>
-                            <h3>{movie.fields?.title} \{movie.fields?.year}\</h3>
-                        </div>
+                        {console.log(movie.id, movie.fields.title)}
+                            <div 
+                                style={{backgroundImage: `url(${movie.fields?.poster})`, 
+                                    backgroundRepeat: 'no-repeat', 
+                                    backgroundSize:`contain`}} 
+                                className='movie-card'
+                            >
+                                <div className='rank'>
+                                    <h3>#{i+1}</h3>
+                                </div>
+                                <div className='details'>
+                                    <h3>{movie.fields?.title} \{movie.fields?.year}\</h3>
+                                </div>
+                            </div>
+                        </Link>
                     </div>
-                    </Link>
-
-                    </div>
+                    
                 )
             })}
 
             <i className="fas fa-chevron-right arrow next" onClick={nextSlide}></i>
             <i className="fas fa-chevron-left arrow prev" onClick={prevSlide}></i> 
-        
-            
         </div>
     )
 }
