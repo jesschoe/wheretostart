@@ -6,6 +6,7 @@ import MovieSearch from './components/MovieSearch';
 import MovieDetails from './components/MovieDetails';
 import Future from './images/future.png'
 import SubmitReview from './components/SubmitReview'
+import Slider from './components/Carousel/Slider'
 
 function App() {
 
@@ -15,7 +16,9 @@ function App() {
       <div className='app-body'>
       <Route exact path='/'>
         <div className='main-img-container'>
-          <img src={Future} alt='futuristic sci-fi' className='main-img' />
+          <h3>want to watch some great sci-fi but don't know where to start? start here!</h3>
+          {/* <img src={Future} alt='futuristic sci-fi' className='main-img' /> */}
+          <Slider />
         </div>
       </Route>
       <Route exact path='/movies'>

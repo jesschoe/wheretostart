@@ -7,7 +7,7 @@ import Reviews from './Reviews'
 export default function MovieDetails() {
     const { id } = useParams()
     const [ movie, setMovie ] = useState({})
-    
+    console.log('params', id)
     useEffect(() => {
         const getMovie = async() => {
             const movieTitle = await fetchMovie(id)
@@ -18,8 +18,8 @@ export default function MovieDetails() {
 
     return (
         <div>
-            <Details title={movie.fields?.title} id={id}/>
-            <Reviews reviewIds={movie.fields?.reviews} id={id}/> 
+            <Details title={movie.fields?.title} id={id} />
+            <Reviews reviewIds={movie.fields?.reviews} /> 
         </div>
     )
 }

@@ -80,8 +80,8 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   margin: 20px;
-  width: 200px;
-  height: 330px;
+  width: 140px;
+  height: 230px;
   background-color: #160932;
   transform: skewY(-5deg);
   box-shadow: 0 8px 6px -3px black;
@@ -90,7 +90,7 @@ footer {
 .details {
   background-color: #640E7D;
   color: #D1FDFF;
-  font-weight: bold;
+  font-weight: 700;
   font-size: .8em;
   transform: skewY(5deg);
   margin: 0 0 10px 0;
@@ -132,8 +132,8 @@ footer {
   transform: skewY(5deg);
 }
 
-img {
-  width: 300px;
+.main-img-container h3 {
+    color: white;
 }
 
 .main-img {
@@ -220,8 +220,8 @@ i:hover {
   color: #160932;
   background-color: #FFA671;
   font-weight: bold;
-  font-size: 1.1em;
-  width: 70px;
+  font-size: 1em;
+  width: 60px;
   opacity: .95;
   margin: -15px;
   transform: skewY(-7deg);
@@ -242,5 +242,17 @@ i:hover {
     font-size: 1em;
     padding: 0 0 10px 0;
     flex: 0 0 auto;
+  }
+
+  .movie-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 20px;
+    width: 200px;
+    height: 330px;
+    background-color: #160932;
+    transform: skewY(-5deg);
+    box-shadow: 0 8px 6px -3px black;
   }
 }
