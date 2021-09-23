@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Slider.css'
-import Arrows from './Arrows'
 import { fetchMovies } from '../../services'
 
 export default function Slider() {
@@ -49,7 +48,7 @@ export default function Slider() {
             {movies.map((movie,i) => {
                 console.log(movie.id, movie.fields.title)
                 return (
-                    <div className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
+                    <div key={movie.id} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
                         <Link to={`/movies/${movie.id}`} key={movie.id} style={{ textDecoration: 'none' }}>
                     <div 
                         style={{backgroundImage: `url(${movie.fields?.poster})`, 

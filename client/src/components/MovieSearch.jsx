@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router'
 import Form from "./Form"
-import { fetchMovies, searchMovieId, searchMovies, submitMovie } from '../services'
+import { searchMovieId, searchMovies, submitMovie } from '../services'
 
 export default function MovieSearch() {
     const history = useHistory()
@@ -16,7 +16,6 @@ export default function MovieSearch() {
 
     const handleClick = value => async() => {
         const res = await searchMovieId(value)
-        const movie = await fetchMovies()
         
         const fields = {
             title: res.Title,
