@@ -55,7 +55,7 @@ export default function Slider() {
     }
     
     function onSwipeEnd(event) {
-        console.log(position.x, event);
+        
         if (xPosition < 0) {
             prevSlide()
         } else {
