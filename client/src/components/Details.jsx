@@ -6,22 +6,21 @@ import RingLoader from 'react-spinners/RingLoader'
 
 export default function MovieDetails(props) {
     const [ details, setDetails ] = useState({})
-    const [loading, setLoading] = useState(true)
-   
+
     useEffect(() => {
         const getDetails = async() => {
             setDetails(await fetchMovieDetails(props.title))
-            setLoading(false)
         }
         getDetails()
         
     }, [props.title])
 
     return (
-        
         <div>
-           
-            { details.Title==='Undefined' ? (<div className='details-container'><RingLoader color='#03e9f4' /></div>) : (
+            { details.Title==='Undefined' ? (
+                <div className='details-container'>
+                        <RingLoader color='#03e9f4' />
+                </div>) : (
                 <div className='details-container' >
                     <h2>
                         {details.Title}

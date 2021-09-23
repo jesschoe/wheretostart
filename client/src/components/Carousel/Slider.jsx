@@ -47,7 +47,7 @@ export default function Slider() {
                 
                 return (
                     
-                    <div key={movie.id} className={slideIndex === i + 1 ? 'slide active-anim' : 'slide'}>
+                    <div key={movie.id} className={slideIndex === i + 1 ? 'slide active' : 'slide'}>
                         <Link to={`/movies/${movie.id}`} key={movie.id} style={{ textDecoration: 'none' }}>
                             <div 
                                 style={{backgroundImage: `url(${movie.fields?.poster})`, 

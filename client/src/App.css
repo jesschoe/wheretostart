@@ -1,11 +1,8 @@
-
-
 .App {
   margin: 0px;
   text-align: center;
-  background: linear-gradient(157deg, #1871C2, #160932, #F35EFF, #1871C2),
-    linear-gradient(127deg, #FFEBFF, #1871C2, #9524C7),
-    linear-gradient(17deg, #640E7D, #160932);
+  /* https://www.gradientmagic.com/ */
+  background-image: linear-gradient(316deg, rgba(234, 234, 234, 0.02) 0%, rgba(234, 234, 234, 0.02) 16.667%,rgba(128, 128, 128, 0.02) 16.667%, rgba(128, 128, 128, 0.02) 33.334%,rgba(161, 161, 161, 0.02) 33.334%, rgba(161, 161, 161, 0.02) 50.001000000000005%,rgba(154, 154, 154, 0.02) 50.001%, rgba(154, 154, 154, 0.02) 66.668%,rgba(77, 77, 77, 0.02) 66.668%, rgba(77, 77, 77, 0.02) 83.33500000000001%,rgba(10, 10, 10, 0.02) 83.335%, rgba(10, 10, 10, 0.02) 100.002%),linear-gradient(75deg, rgba(39, 39, 39, 0.03) 0%, rgba(39, 39, 39, 0.03) 20%,rgba(232, 232, 232, 0.03) 20%, rgba(232, 232, 232, 0.03) 40%,rgba(33, 33, 33, 0.03) 40%, rgba(33, 33, 33, 0.03) 60%,rgba(84, 84, 84, 0.03) 60%, rgba(84, 84, 84, 0.03) 80%,rgba(112, 112, 112, 0.03) 80%, rgba(112, 112, 112, 0.03) 100%),linear-gradient(103deg, rgba(174, 174, 174, 0.03) 0%, rgba(174, 174, 174, 0.03) 12.5%,rgba(190, 190, 190, 0.03) 12.5%, rgba(190, 190, 190, 0.03) 25%,rgba(191, 191, 191, 0.03) 25%, rgba(191, 191, 191, 0.03) 37.5%,rgba(23, 23, 23, 0.03) 37.5%, rgba(23, 23, 23, 0.03) 50%,rgba(227, 227, 227, 0.03) 50%, rgba(227, 227, 227, 0.03) 62.5%,rgba(71, 71, 71, 0.03) 62.5%, rgba(71, 71, 71, 0.03) 75%,rgba(162, 162, 162, 0.03) 75%, rgba(162, 162, 162, 0.03) 87.5%,rgba(85, 85, 85, 0.03) 87.5%, rgba(85, 85, 85, 0.03) 100%),linear-gradient(355deg, rgba(38, 38, 38, 0.02) 0%, rgba(38, 38, 38, 0.02) 25%,rgba(106, 106, 106, 0.02) 25%, rgba(106, 106, 106, 0.02) 50%,rgba(28, 28, 28, 0.02) 50%, rgba(28, 28, 28, 0.02) 75%,rgba(66, 66, 66, 0.02) 75%, rgba(66, 66, 66, 0.02) 100%),linear-gradient(137deg, rgba(38, 38, 38, 0.03) 0%, rgba(38, 38, 38, 0.03) 25%,rgba(211, 211, 211, 0.03) 25%, rgba(211, 211, 211, 0.03) 50%,rgba(4, 4, 4, 0.03) 50%, rgba(4, 4, 4, 0.03) 75%,rgba(24, 24, 24, 0.03) 75%, rgba(24, 24, 24, 0.03) 100%),linear-gradient(51deg, rgba(253, 253, 253, 0.03) 0%, rgba(253, 253, 253, 0.03) 14.286%,rgba(103, 103, 103, 0.03) 14.286%, rgba(103, 103, 103, 0.03) 28.572%,rgba(46, 46, 46, 0.03) 28.572%, rgba(46, 46, 46, 0.03) 42.858%,rgba(68, 68, 68, 0.03) 42.858%, rgba(68, 68, 68, 0.03) 57.144%,rgba(116, 116, 116, 0.03) 57.144%, rgba(116, 116, 116, 0.03) 71.42999999999999%,rgba(248, 248, 248, 0.03) 71.43%, rgba(248, 248, 248, 0.03) 85.71600000000001%,rgba(174, 174, 174, 0.03) 85.716%, rgba(174, 174, 174, 0.03) 100.002%),linear-gradient(283deg, rgba(20, 20, 20, 0.01) 0%, rgba(20, 20, 20, 0.01) 14.286%,rgba(23, 23, 23, 0.01) 14.286%, rgba(23, 23, 23, 0.01) 28.572%,rgba(19, 19, 19, 0.01) 28.572%, rgba(19, 19, 19, 0.01) 42.858%,rgba(134, 134, 134, 0.01) 42.858%, rgba(134, 134, 134, 0.01) 57.144%,rgba(4, 4, 4, 0.01) 57.144%, rgba(4, 4, 4, 0.01) 71.42999999999999%,rgba(254, 254, 254, 0.01) 71.43%, rgba(254, 254, 254, 0.01) 85.71600000000001%,rgba(87, 87, 87, 0.01) 85.716%, rgba(87, 87, 87, 0.01) 100.002%),linear-gradient(90deg, rgb(168, 1, 206),rgb(20, 120, 203));
   padding: 0px;
   font-family: 'Rajdhani', sans-serif;
   font-size: 18px;
@@ -23,10 +20,6 @@
   height: 100vh;
   overflow: auto;
   margin: 0 auto;
-}
-
-Link {
-  margin: 5px;
 }
 
 nav {
@@ -84,7 +77,7 @@ footer img {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 60px 30px 30px 30px;
+  margin: 60px 10px 10px 10px;
   width: 140px;
   height: 230px;
   background-color: #160932;
@@ -97,7 +90,7 @@ footer img {
   color: #160932;
   background-color: #FFA671;
   font-weight: bold;
-  font-size: 1em;
+  font-size: .9em;
   width: 60px;
   opacity: .95;
   margin: -15px;
@@ -128,8 +121,8 @@ footer img {
   align-items: center;
   max-width: 600px;
   min-height: 500px;
-  min-width: 500px;
-  margin: 20px;
+  min-width: 300px;
+  margin: 40px;
   background-color: #160932;
   color:#03e9f4;
   opacity: .8;
@@ -176,6 +169,7 @@ footer img {
 
 .search-container h5 {
   color: white;
+  margin: 20px;
 }
 
 .search-form {
@@ -200,41 +194,12 @@ form {
   font-family: 'Rajdhani', sans-serif;
 }
 
-.reviews-container {
-  display: flex;
-  flex-direction: column;
-  justify-items: flex-end;
-  align-items: flex-end;
-}
-
-.reviews-container h3 {
-  margin: 10px;
-  font-family: 'Orbitron', sans-serif;
-}
-
-.reviews {
-  color: #FFC9FF;
-  background-color: #160932;
-  margin: 10px;
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  opacity: .9;
-  box-shadow: 0 8px 6px -3px black;
-}
-
-.review-name {
-  font-size: .8em;
-  font-style: italic;
-  text-align: right;
-  margin: 20px;
-}
-
 button {
   width: 80px;
   align-self:flex-end;
   margin: 5px;
-  background: linear-gradient(90deg, transparent, #03e9f4, transparent);
+  color: #03e9f4;
+  background: transparent;
   border: none;
   font-family: 'Orbitron', sans-serif;
 }
@@ -278,7 +243,7 @@ label {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 80px 40px 40px 40px;
+    margin: 80px 20px 20px 20px;
     width: 200px;
     height: 330px;
     background-color: #160932;

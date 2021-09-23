@@ -7,7 +7,7 @@ import AllReviews from '../components/Reviews/AllReviews'
 export default function MovieDetails() {
     const { id } = useParams()
     const [ movie, setMovie ] = useState({})
-    
+
     useEffect(() => {
         const getMovie = async() => {
             const movieTitle = await fetchMovie(id)

@@ -10,7 +10,7 @@ export default function Navbar() {
                 </div>
             </Link>
             <div>
-                <Link className='nav-links p-5'to='/movies'>see all movies</Link>
+                <Link className='nav-links p-5'to='/movies'>see all</Link>
                 <Link className='nav-links p-5'to='/new'>recommend movie</Link>
             </div>
         </nav>

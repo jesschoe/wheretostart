@@ -1,30 +1,17 @@
-html {
-    height: 100%;
-}
-
-body {
-    margin:0;
-    padding:0;
-    font-family: sans-serif;
-    background: linear-gradient(#160932, #243b55);
-}
 
 .review-box {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 300px;
+    width: 270px;
     padding: 30px;
     transform: translate(-50%, -50%);
     background: #160932;
-    box-sizing: border-box;
     box-shadow: 0 15px 25px #160932;
-    border-radius: 10px;
 }
 
 .review-box h4 {
     margin: 0 0 30px;
-    padding: 0;
     color: #fff;
     text-align: center;
 }

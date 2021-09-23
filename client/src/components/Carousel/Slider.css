@@ -12,14 +12,14 @@
     display: none;
 }
 
+.active {
+    display: block;
+}
+
 .slide .movie-card {
     margin: 50px auto;
     width: 250px;
     height: 400px;
-}
-
-.active-anim {
-    display: block;
 }
 
 .arrow {
