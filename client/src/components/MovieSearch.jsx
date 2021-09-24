@@ -9,6 +9,7 @@ export default function MovieSearch() {
     const [title, setTitle] = useState('')
     const [movieList, setMovieList] = useState([])
     const [loading, setLoading] = useState(false)
+    const [movies, setMovies] = useState([])
 
     const handleSearch = async(e) => {
         e.preventDefault()
@@ -23,10 +24,20 @@ export default function MovieSearch() {
         const allMovies = await fetchMovies()
         let exists = false 
         
+        function compare( mov1, mov2 ) {
+            if ( mov1.fields.votes < mov2.fields.votes ){
+                return 1;
+            }
+            else {
+                return -1;
+            }
+        }
+        allMovies.sort(compare)
+        setMovies(allMovies)
 
         for (let i = 0; i < allMovies.length; i++) {
             if (res.Title === allMovies[i].fields.title) {
-                history.push(`/movies/${allMovies[i].id}`)
+                history.push(`/movies/${allMovies[i].id}/${i+1}`)
                 exists = true
             } 
         }
@@ -58,8 +69,7 @@ export default function MovieSearch() {
                     handleSearch={handleSearch}
                 />
             </div>
-            <h5>Select the movie you'd like to add to the list
-                Your selection will automatically have 1 vote</h5>
+                <h5>Select the movie you'd like to add to the list. If the movie is already on the list, it will take you to its voting page.</h5>
             <div className='movie-container'>
                 {loading ? <RingLoader color='#03e9f4' /> : 
                 movieList?.map(movie => {
