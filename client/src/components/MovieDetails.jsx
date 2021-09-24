@@ -5,7 +5,7 @@ import Details from './Details'
 import AllReviews from '../components/Reviews/AllReviews'
 
 export default function MovieDetails() {
-    const { id } = useParams()
+    const { id, rank } = useParams()
     const [ movie, setMovie ] = useState({})
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function MovieDetails() {
 
     return (
         <div>
-            <Details title={movie.fields?.title} id={id} />
+            <Details title={movie.fields?.title} id={id} rank={rank}/>
             <AllReviews reviewIds={movie.fields?.reviews} /> 
         </div>
     )

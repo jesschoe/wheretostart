@@ -4,7 +4,7 @@ export default function ReviewForm(props) {
 
     return (
         <div className="review-box">
-            <i class="fas fa-times" onClick={() => props.setShowModal(prev=>!prev)}></i>
+            <i className="fas fa-times" onClick={() => props.setShowModal(prev=>!prev)}></i>
             <h4>Thanks for voting! Would you like to leave a review?</h4>
             <form onSubmit={props.handleSubmit}>
             <div className="user-box">

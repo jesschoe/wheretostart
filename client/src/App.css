@@ -92,6 +92,19 @@ footer img {
   box-shadow: 0 8px 6px -3px black;
 }
 
+.details-container button {
+  margin: 0 auto;
+  width: auto;
+  transform: skewY(5deg);
+  font-size: .9em;
+}
+
+.details-container .movie-card {
+  box-shadow: none;
+  transform: skewY(5deg);
+  margin: 30px 0 0 0;
+}
+
 .rank {
   align-self: flex-end;
   color: #160932;

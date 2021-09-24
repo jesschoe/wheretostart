@@ -3,7 +3,7 @@ import { getReviews, deleteReview } from '../../services'
 import './AllReviews.css'
 
 export default function AllReviews(props) {
-    const [reviews, setReviews] = useState([])
+    const [ reviews, setReviews ] = useState([])
     
     useEffect(() => {
         if (props.reviewIds) {

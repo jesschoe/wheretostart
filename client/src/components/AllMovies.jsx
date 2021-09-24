@@ -5,7 +5,6 @@ import { fetchMovies } from '../services'
 export default function AllMovies() {
     const [ movies, setMovies ] = useState([])
 
-    
     useEffect(() => {
         const setAllMovies = async() => {
         let allMovies = await fetchMovies()
@@ -18,20 +17,19 @@ export default function AllMovies() {
                 return -1;
             }
         }
-        allMovies.sort( compare );
+        allMovies.sort(compare);
         setMovies(allMovies)
         }
         setAllMovies()
     }, [])
 
-
-
-
     return (
         <div className='movie-container' >
             {movies.map((movie, i) => {
                 return (
-                    <Link to={`/movies/${movie.id}`} key={movie.id} style={{ textDecoration: 'none' }}>
+                    <Link to={`/movies/${movie.id}/${i+1}`} 
+                        key={movie.id} 
+                        style={{ textDecoration: 'none' }}>
                     <div 
                         style={{backgroundImage: `url(${movie.fields?.poster})`, 
                             backgroundRepeat: 'no-repeat', 

@@ -1,11 +1,12 @@
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { fetchMovieDetails } from '../services'
 import Vote from './Vote'
 import RingLoader from 'react-spinners/RingLoader'
 
 export default function MovieDetails(props) {
     const [ details, setDetails ] = useState({})
+    const reviewRef = useRef()
 
     useEffect(() => {
         const getDetails = async() => {
@@ -14,6 +15,10 @@ export default function MovieDetails(props) {
         getDetails()
         
     }, [props.title])
+
+    const handleClick = () => {
+        reviewRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
 
     return (
         <div>
@@ -26,14 +31,17 @@ export default function MovieDetails(props) {
                         {details.Title}
                     </h2>
                     <div 
-                        className='img-div' 
+                        className='movie-card' 
                         style={{backgroundImage: `url(${details.Poster})`, 
-                        height: '200px', 
                         backgroundRepeat: 'no-repeat', 
                         backgroundSize:`contain`}}
                     >
+                        <div className='rank'>
+                            <h3>#{props.rank}</h3>
+                        </div>
                     </div>
                     <Vote id={props.id} />
+                    <button onClick={handleClick}>jump to reviews</button>
                     <div className='movie-detail'>
                         <p>Rated: {details.Rated}</p>
                         <p>Directed By: {details.Director}</p>
@@ -43,6 +51,9 @@ export default function MovieDetails(props) {
                     </div>
                 </div>
             )}
+            <div ref={reviewRef}>
+
+            </div>
         </div>
     )
 }
