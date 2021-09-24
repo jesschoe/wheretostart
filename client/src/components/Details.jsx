@@ -41,7 +41,7 @@ export default function MovieDetails(props) {
                         </div>
                     </div>
                     <Vote id={props.id} />
-                    <button onClick={handleClick}>jump to reviews</button>
+                    <button className='review-btn' onClick={handleClick}>jump to reviews</button>
                     <div className='movie-detail'>
                         <p>Rated: {details.Rated}</p>
                         <p>Directed By: {details.Director}</p>

@@ -43,17 +43,14 @@ export default function Slider() {
         }
     }
 
-    function onSwipeStart(event) {
-        console.log('Start swiping...', event);
+    function onSwipeStart() {
     }
     
-    function onSwipeMove(position, event) {
-        console.log(`Moved ${position.x} pixels horizontally`, event);
-        console.log(`Moved ${position.y} pixels vertically`, event);
-            setXPosition(position.x)
+    function onSwipeMove(position) {
+        setXPosition(position.x)
     }
     
-    function onSwipeEnd(event) {
+    function onSwipeEnd() {
         if (xPosition > 150) {
             prevSlide()
         } else if (xPosition < -150) {
@@ -66,7 +63,6 @@ export default function Slider() {
             {movies.map((movie,i) => {
                 
                 return (
-                    
                     <div key={movie.id} className={slideIndex === i + 1 ? 'slide active' : 'slide'}>
                         <Link to={`/movies/${movie.id}/${i+1}`} key={movie.id} style={{ textDecoration: 'none' }}>
                             <Swipe
