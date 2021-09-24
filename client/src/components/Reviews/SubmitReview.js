@@ -5,9 +5,10 @@ import ReviewForm from './ReviewForm'
 
 
 export default function SubmitReview(props) {
-    const [reviews, setReviews] = useState()
-    const [username, setUsername] = useState('anonymous')
+    const [ reviews, setReviews ] = useState('')
+    const [ username, setUsername ] = useState('anonymous')
     const { id } = useParams()
+
 
     const handleSubmit = async(e) => {
         e.preventDefault()

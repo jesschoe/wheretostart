@@ -41,6 +41,12 @@ export async function getReviews(id) {
     return res.data
 }
 
+export async function searchReviews() {
+    const res = await axios.get(`${reviewsURL}?fields%5B%5D=Movies&fields%5B%5D=review`, config)
+    return res.data
+}
+
+
 export async function reviewMovie(fields) {
     const res = await axios.post(reviewsURL, {fields}, config)
     return res.data

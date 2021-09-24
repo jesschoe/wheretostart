@@ -27,7 +27,7 @@ export default function ReviewForm(props) {
                     <label>Review</label>
                 </div>
                 <div className='review=buttons'>
-                    <button type='submit' className='font-orb'>
+                    <button type='submit' className='font-orb' disabled={props.reviews===''?true:false}>
                         <span></span>
                         <span></span>
                         <span></span>
