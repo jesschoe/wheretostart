@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom'
 import './Slider.css'
 import { fetchMovies } from '../../services'
 import Swipe from 'react-easy-swipe';
-// import { Swiper, SwiperSlide } from 'swiper/react';
 
 export default function Slider() {
     const [ slideIndex, setSlideIndex ] = useState(1)
     const [ movies, setMovies ] = useState([])
-    const [ xPosition, setXPosition ] = useState()
+    const [ xPosition, setXPosition ] = useState(0)
 
     useEffect(() => {
         const setAllMovies = async() => {
@@ -51,17 +50,15 @@ export default function Slider() {
     function onSwipeMove(position, event) {
         console.log(`Moved ${position.x} pixels horizontally`, event);
         console.log(`Moved ${position.y} pixels vertically`, event);
-        if (position.x > 25 || position.x < -25) {
+        if (position.x > 30 || position.x < -30) {
             setXPosition(position.x)
         }
-        
     }
     
     function onSwipeEnd(event) {
-        
         if (xPosition < 0) {
             prevSlide()
-        } else {
+        } else if (xPosition > 0) {
             nextSlide()
         }
     }
