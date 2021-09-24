@@ -1,11 +1,10 @@
-
-import { useHistory } from 'react-router'
 import { useState, useEffect } from 'react'
 import { fetchMovie, voteMovie } from '../services'
+import Modal from './Modal'
 
 export default function Vote(props) {
-    const history = useHistory()
     const [numVotes, setNumVotes] = useState(0)
+    const [showModal, setShowModal] = useState(false)
 
     useEffect(() => {
         const getMovie = async() => {
@@ -23,7 +22,7 @@ export default function Vote(props) {
         }
         
         await voteMovie(props.id, fields)
-        history.push(`/movies/${props.id}/review`)
+        setShowModal(prev => !prev)
     }
 
     const downVoteHandler = async() => {
@@ -33,13 +32,15 @@ export default function Vote(props) {
         }
 
         await voteMovie(props.id, fields)
-        history.push(`/movies/${props.id}/review`)
+        setShowModal(prev => !prev)
     }
 
     return (
         <div className='vote-div'>
             <i className="far fa-thumbs-up fa-2x" onClick={upVoteHandler}></i>
             <i className="far fa-thumbs-down fa-2x" onClick={downVoteHandler}></i>
+            <Modal showModal={showModal} setShowModal={setShowModal} />
         </div>
+
     )
 }

@@ -4,7 +4,7 @@ import { fetchMovie, reviewMovie } from '../../services'
 import ReviewForm from './ReviewForm'
 
 
-export default function SubmitReview() {
+export default function SubmitReview(props) {
     const [reviews, setReviews] = useState()
     const [username, setUsername] = useState('anonymous')
     const { id } = useParams()
@@ -39,6 +39,8 @@ export default function SubmitReview() {
             setReviews={setReviews}
             username={username}
             setUsername={setUsername}
+            id={id}
+            setShowModal={props.setShowModal}
         />
     )
 }

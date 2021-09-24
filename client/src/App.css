@@ -119,6 +119,7 @@ footer img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: center;
   max-width: 600px;
   min-height: 500px;
   min-width: 300px;
@@ -138,6 +139,7 @@ footer img {
   transform: skewY(5deg);
   text-align: left;
   margin: 10px;
+  z-index: -1;
 }
 
 .img-div {
@@ -208,8 +210,8 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(270deg, #03e9f4, transparent, #03e9f4);
-  color: #03e9f4;
+  background: linear-gradient(270deg, transparent, #03e9f4, transparent);
+  color: white;
   font-family: 'Orbitron', sans-serif;
 }
 
@@ -240,6 +242,18 @@ label {
   color: #03e9f4;
   font-size: 12px;
 }
+
+.modal-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 
 @media only screen and (min-width: 500px) {
   .movie-card {

@@ -1,9 +1,10 @@
 import './ReviewForm.css'
 
 export default function ReviewForm(props) {
-    // props.setUsername('anonymous')
+
     return (
         <div className="review-box">
+            <i class="fas fa-times" onClick={() => props.setShowModal(prev=>!prev)}></i>
             <h4>Thanks for voting! Would you like to leave a review?</h4>
             <form onSubmit={props.handleSubmit}>
             <div className="user-box">
@@ -25,13 +26,15 @@ export default function ReviewForm(props) {
                         onChange={(e)=>props.setReviews(e.target.value)} />
                     <label>Review</label>
                 </div>
-                <button className='font-orb'>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Submit
-                </button>
+                <div className='review=buttons'>
+                    <button type='submit' className='font-orb'>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Submit
+                    </button>
+                </div>
             </form>
         </div>
     )

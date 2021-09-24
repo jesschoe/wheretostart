@@ -6,12 +6,13 @@
     width: 270px;
     padding: 30px;
     transform: translate(-50%, -50%);
-    background: #160932;
-    box-shadow: 0 15px 25px #160932;
+    background: linear-gradient(45deg,  rgb(168, 1, 206),rgb(20, 120, 203));
+    box-shadow: 15px 15px 25px #160932;
+    opacity: .95;
 }
 
 .review-box h4 {
-    margin: 0 0 30px;
+    margin: 20px 0 30px;
     color: #fff;
     text-align: center;
 }
@@ -30,6 +31,7 @@
     border-bottom: 1px solid white;
     outline: none;
     background: transparent;
+    
 }
 .review-box .user-box label {
     position: absolute;
@@ -41,7 +43,7 @@
     top: -20px;
     left: 0;
     color: #03e9f4;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .review-box a:hover {
@@ -57,4 +59,12 @@
 .review-box a span {
     position: absolute;
     display: block;
+}
+
+.review-box i {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    padding: 0;
 }

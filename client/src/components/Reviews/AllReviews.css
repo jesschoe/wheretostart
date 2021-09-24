@@ -16,6 +16,7 @@
     background-color: #160932;
     margin: 10px;
     width: 60%;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
     opacity: .9;
