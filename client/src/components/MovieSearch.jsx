@@ -9,7 +9,6 @@ export default function MovieSearch() {
     const [title, setTitle] = useState('')
     const [movieList, setMovieList] = useState([])
     const [loading, setLoading] = useState(false)
-    const [movies, setMovies] = useState([])
 
     const handleSearch = async(e) => {
         e.preventDefault()
@@ -33,7 +32,6 @@ export default function MovieSearch() {
             }
         }
         allMovies.sort(compare)
-        setMovies(allMovies)
 
         for (let i = 0; i < allMovies.length; i++) {
             if (res.Title === allMovies[i].fields.title) {
