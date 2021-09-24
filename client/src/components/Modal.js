@@ -4,7 +4,7 @@ export default function Modal(props) {
     return (
         <div>
             {props.showModal ? (
-                <div className='modal-container'>    
+                <div>    
                     <SubmitReview setShowModal={props.setShowModal}/>
                 </div>
             ) : ''}

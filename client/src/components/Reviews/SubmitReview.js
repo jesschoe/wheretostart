@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useParams, useHistory } from 'react-router'
+import { useParams } from 'react-router'
 import { fetchMovie, reviewMovie } from '../../services'
 import ReviewForm from './ReviewForm'
 
@@ -8,8 +8,6 @@ export default function SubmitReview(props) {
     const [reviews, setReviews] = useState()
     const [username, setUsername] = useState('anonymous')
     const { id } = useParams()
-    const history = useHistory()
-
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -29,7 +27,8 @@ export default function SubmitReview(props) {
             "username": `${username}`
         }
         await reviewMovie(fields)
-        history.push(`/movies/${id}`)
+        props.setShowModal(prev=>!prev)
+        window.location.reload();
     }
 
     return (

@@ -1,13 +1,13 @@
 
 .review-box {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     width: 270px;
     padding: 30px;
     transform: translate(-50%, -50%);
     background: linear-gradient(45deg,  rgb(168, 1, 206),rgb(20, 120, 203));
-    box-shadow: 15px 15px 25px #160932;
+    box-shadow: 5px 5px 5px #03e9f4;
     opacity: .95;
 }
 
