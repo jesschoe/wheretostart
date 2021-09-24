@@ -60,6 +60,13 @@ footer img {
   font-size: 1em;
   margin: 0 0 -20px 0;
 }
+.site-name h1 {
+  color: #03e9f4;
+}
+
+.site-name h1:hover {
+  color: #FFC9FF;
+}
 
 .movie-container {
   display: flex;
