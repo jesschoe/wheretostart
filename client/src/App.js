@@ -36,7 +36,7 @@ function App() {
       </Route>
       </div>
       <footer>
-        <a href='https://github.com/jesschoe/' target='blank'><img src={GitHub} alt='GitHub logo' /></a>
+        <a href='https://github.com/jesschoe/wheretostart' target='blank'><img src={GitHub} alt='GitHub logo' /></a>
       </footer>
     </div>
   );

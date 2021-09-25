@@ -10,12 +10,12 @@ wheretostart is a collection of resources and recommendations for beginners who 
 The following wireframes depict the mobile and desktop layouts for the app.
 
 
-![imageAlt](./client/images/wireframe-mobile.png)
-![imageAlt](./client/images/wireframe-desktop.png)
+![imageAlt](./client/src/images/wireframe-mobile.png)
+![imageAlt](./client/src/images/wireframe-desktop.png)
 
 ## Component Hierarchy
 
-![imageAlt](./client/images/components.png)
+![imageAlt](./client/src/images/components.png)
 
 ## API and Data Sample
 
@@ -54,7 +54,8 @@ Airtable is returning the data for this base as follows:
 
 - Create a section for each movie where users can leave a review
 - Create a carousel component so users can click through each movie in the top 10
-- Create a section for another category (other movie genre, video games, coding, etc...)
+- Display reviews by date and add edit/delete functionality
+- Create modals for forms and alerts
 
 ## Project Schedule
 
@@ -66,43 +67,85 @@ Airtable is returning the data for this base as follows:
 | Sept 20 | Complete CSS Components                    | Complete |
 | Sept 21 | Post MVP: Review Component                 | Complete |
 | Sept 22 | Continue Post MVP / Advanced Styling       | Complete |
-| Sept 23 | Post MVP: Add Category / Clean up code     | incomplete |
+| Sept 23 | Post MVP / Clean up code                   | Complete |
 | Sept 24 | Presentation                               | incomplete |
 
 ## Timeframes
 
 | Component                 | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------------- | :------: | :------------: | :-----------: | :---------: |
-| Proposal                  |    H     |      2hrs      |      2hrs     |         |
-| Airtable setup            |    H     |      1hr       |      2hrs     |          |
-| Set up Routes/Components  |    H     |      2hr       |      1hr      |          |
-| Set up/test all API calls |    H     |      3hrs      |      2hrs     |         |
-| Create top10 component    |    H     |      3hrs      |      3hrs     |         |
-| Create details component  |    H     |      3hr       |      2hrs     |         |
-| Create submit component   |    H     |      3hrs      |      2hrs     |         |
-| Create vote component     |    H     |      3hrs      |      3hrs     |         |
-| Structure/Basic styling   |    H     |      3hrs      |      2hrs     |         |
-| CSS Components            |    H     |      3hrs      |            |          |
-| Create Review Component   |    M     |      5hrs      |      5hrs     |         |
-| Edit/Delete Reviews       |    L     |      5hrs      |      3hrs     |          |
-| Style Review Component    |    M     |      3hrs      |      2hrs     |          |
-| Advanced CSS              |    L     |      3hrs      |            |          |
-| Add Add Category          |    L     |      3hrs      |            |          |
-| Total                     |    H     |      47hrs     |          |        |
+| Proposal                  |    H     |      2hrs      |      2hrs     |     2hrs    |
+| Airtable setup            |    H     |      1hr       |      2hrs     |     2hrs    |
+| Set up Routes/Components  |    H     |      2hr       |      1hr      |     1hr     |
+| Set up/test all API calls |    H     |      3hrs      |      2hrs     |     2hrs    |
+| Create top10 component    |    H     |      3hrs      |      3hrs     |     3hrs    |
+| Create details component  |    H     |      3hr       |      2hrs     |     2hrs    |
+| Create submit component   |    H     |      3hrs      |      2hrs     |     2hrs    |
+| Create vote component     |    H     |      3hrs      |      3hrs     |     3hrs    |
+| Structure/Basic styling   |    H     |      3hrs      |      2hrs     |     2hrs    |
+| CSS Components            |    H     |      3hrs      |      5hrs     |     5hrs    |
+| Create Review Component   |    M     |      5hrs      |      5hrs     |     5hrs    |
+| Edit/Delete Reviews       |    L     |      5hrs      |      4hrs     |     4hrs    |
+| Style Review Component    |    M     |      3hrs      |      2hrs     |     2hrs    |
+| Advanced CSS              |    L     |      3hrs      |      3hrs     |     3hrs    |
+| Sort reviews and restrict edit/delete|    L  |  3hrs  |      4hrs     |     4hrs    |
+| Create modals             |    L     |      3hrs      |      3hrs     |     3hrs    |
+| Total to MVP              |          |      26hrs     |      45hrs    |     45hrs   |
 
-## SWOT Analysis
+## Code Snippet
 
-### Strengths:
+Taking the auto-created timestamp from Airtable and manipulating the strings into two different formats that I needed was fun. One format is for displaying and one format is to turn it into numbers to compare and use in the compare function for sorting. That was all so that I could have the reviews display in order with the most recent on top.
+```
+// if the array of review IDs exist as props, start mapping through and get the timestamp
+
+useEffect(() => {
+  if (props.reviewIds) {
+    props.reviewIds.map(async (reviewId) => {
+        const data = await getReviews(reviewId)
+
+        // format time for displaying purposes
+
+        let time = data.createdTime.split('')
+        for (let i = 0; i < time.length; i++) {
+            if (time[i] === 'T') {
+                time[i] = ' '
+            } else if (time[i] === '.') {
+                time.splice([i], 5)
+            }
+        }
+
+        // create new time variable for sorting purposes
+
+        const compareTimes = time
+        time = time.join('')
+
+        // function to compare times
+
+        for (let i = 0; i < compareTimes.length; i++) {
+            if (isNaN(compareTimes[i]) || compareTimes[i] === ' ') {
+                compareTimes.splice(i, 1)
+            }
+        }
+        
+        // create review object containing information that will display in the correct format
+
+        const reviewObj = {
+            title: data.fields.title,
+            username: data.fields.username,
+            Movies: data.fields.Movies[0],
+            review: data.fields.review,
+            id: reviewId,
+            time: time,
+            compareTimes: compareTimes
+        }
+
+        // push objects into reviews array using state
+        
+        setReviews((prevState) => [...prevState, reviewObj])
+    }
+  )}
+}, [props.reviewIds])
+```
 
 
-
-### Weaknesses:
-
-
-
-### Opportunities:
-
-
-
-### Threats:
 
