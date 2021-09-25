@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { fetchMovie, voteMovie } from '../services'
 import Modal from './Modal'
 
+// send patch request to Airtable to update vote count
+// display review form modal after vote click
 export default function Vote(props) {
     const [numVotes, setNumVotes] = useState(0)
     const [showModal, setShowModal] = useState(false)
@@ -12,7 +14,6 @@ export default function Vote(props) {
             setNumVotes(res.fields.votes)
         }
         getMovie()
-
     }, [props.id])
 
     const upVoteHandler = async() => {
@@ -41,6 +42,5 @@ export default function Vote(props) {
             <i className="far fa-thumbs-down fa-2x" onClick={downVoteHandler}></i>
             <Modal showModal={showModal} setShowModal={setShowModal} />
         </div>
-
     )
 }

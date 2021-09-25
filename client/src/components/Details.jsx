@@ -1,9 +1,10 @@
 
 import { useState, useEffect, useRef } from 'react'
+import RingLoader from 'react-spinners/RingLoader'
 import { fetchMovieDetails } from '../services'
 import Vote from './Vote'
-import RingLoader from 'react-spinners/RingLoader'
 
+// fetch details for movie and display details
 export default function MovieDetails(props) {
     const [ details, setDetails ] = useState({})
     const reviewRef = useRef()
@@ -22,14 +23,12 @@ export default function MovieDetails(props) {
 
     return (
         <div>
-            { details.Title==='Undefined' ? (
+            {details.Title==='Undefined' ? (
                 <div className='details-container'>
-                        <RingLoader color='#03e9f4' />
+                    <RingLoader color='#03e9f4' />
                 </div>) : (
                 <div className='details-container' >
-                    <h2>
-                        {details.Title}
-                    </h2>
+                    <h2>{details.Title}</h2>
                     <div 
                         className='movie-card' 
                         style={{backgroundImage: `url(${details.Poster})`, 
@@ -41,7 +40,11 @@ export default function MovieDetails(props) {
                         </div>
                     </div>
                     <Vote id={props.id} />
-                    <button className='review-btn' onClick={handleClick}>jump to reviews</button>
+                    <button 
+                        className='review-btn' 
+                        onClick={handleClick}
+                    >jump to reviews
+                    </button>
                     <div className='movie-detail'>
                         <p>Rated: {details.Rated}</p>
                         <p>Directed By: {details.Director}</p>
@@ -49,11 +52,11 @@ export default function MovieDetails(props) {
                         <p>Awards: {details.Awards}</p>
                         <p>Plot: {details.Plot}</p>
                     </div>
+                    <div ref={reviewRef}>
+                    </div>
                 </div>
-            )}
-            <div ref={reviewRef}>
-
-            </div>
+                )
+            }
         </div>
     )
 }

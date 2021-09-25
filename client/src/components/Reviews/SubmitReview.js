@@ -3,15 +3,15 @@ import { useParams } from 'react-router'
 import { fetchMovie, reviewMovie } from '../../services'
 import ReviewForm from './ReviewForm'
 
-
+// post request to Airtable reviews endpoint for new movie review
 export default function SubmitReview(props) {
     const [ reviews, setReviews ] = useState('')
     const [ username, setUsername ] = useState('anonymous')
     const { id } = useParams()
 
-
     const handleSubmit = async(e) => {
         e.preventDefault()
+        
         
         const data = await fetchMovie(id)
         let title

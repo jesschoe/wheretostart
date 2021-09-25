@@ -3,6 +3,7 @@ import { getReviews, deleteReview } from '../../services'
 import Modal from '../Modal'
 import './AllReviews.css'
 
+// fetch and sort array of reviews by created time and display
 export default function AllReviews(props) {
     const [ reviews, setReviews ] = useState([])
     const [ showModal, setShowModal ] = useState(false)
@@ -12,7 +13,9 @@ export default function AllReviews(props) {
             props.reviewIds.map(async (reviewId) => {
                 const data = await getReviews(reviewId)
 
+                // format time for displaying purposes
                 let time = data.createdTime.split('')
+
                 for (let i = 0; i < time.length; i++) {
                     if (time[i] === 'T') {
                         time[i] = ' '
@@ -21,6 +24,7 @@ export default function AllReviews(props) {
                     }
                 }
 
+                // create new time variable for sorting purposes
                 const compareTimes = time
                 time = time.join('')
 
@@ -40,8 +44,8 @@ export default function AllReviews(props) {
                     compareTimes: compareTimes
                 }
                 setReviews((prevState) => [...prevState, reviewObj])
-        })}
-
+            }
+        )}
     }, [props.reviewIds])
 
     const handleDelete = async(id) => {
@@ -64,6 +68,7 @@ export default function AllReviews(props) {
         setShowModal(prev => !prev)
     }
 
+    // display reviews and only enable edit and delete on most recent post
     return (
         <div className='reviews-container'>
             <h3>REVIEWS</h3>
@@ -76,13 +81,17 @@ export default function AllReviews(props) {
                         <div className='review-btns'>
                             <button onClick={()=>handleEdit(review.id)}>edit</button>
                             <button onClick={()=>handleDelete(review.id)}>delete</button>
-                            <Modal showModal={showModal} setShowModal={setShowModal} reviews={review} edit='true'/>
-                        </div>) : 
-                        <p className='disabled-btn'>delete</p> }
-                </div>) 
-            
-            }
-            
+                            <Modal 
+                                showModal={showModal} 
+                                setShowModal={setShowModal} 
+                                reviews={review} edit='true'
+                            />
+                        </div>
+                    ) : 
+                        <p className='disabled-btn'>delete</p> 
+                    }
+                </div>
+            )}
         </div>
     )
 }

@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router'
-import MovieSearchForm from "./MovieSearchForm"
-import { fetchMovies, searchMovieId, searchMovies, submitMovie } from '../services'
 import RingLoader from 'react-spinners/RingLoader'
+import { fetchMovies, searchMovieId, searchMovies, submitMovie } from '../services'
+import MovieSearchForm from "./MovieSearchForm"
 
+// search OMDB API for submitted movie title and display search results
 export default function MovieSearch() {
-    const history = useHistory()
     const [title, setTitle] = useState('')
     const [movieList, setMovieList] = useState([])
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
 
     const handleSearch = async(e) => {
         e.preventDefault()
@@ -33,6 +34,8 @@ export default function MovieSearch() {
         }
         allMovies.sort(compare)
 
+        // check if movie already exists in Airtable
+        // if movie exists, send user to that movie's detail page
         for (let i = 0; i < allMovies.length; i++) {
             if (res.Title === allMovies[i].fields.title) {
                 history.push(`/movies/${allMovies[i].id}/${i+1}`)
@@ -40,6 +43,7 @@ export default function MovieSearch() {
             } 
         }
 
+        //if movie doesn't exist, create object of movie details and post request to Airtable to add to list
         if (exists === false) {
             const fields = {
                 title: res.Title,
@@ -54,7 +58,6 @@ export default function MovieSearch() {
             await submitMovie(fields)
             history.push(`/movies`)
         }
-
     }    
 
     return (
@@ -67,21 +70,25 @@ export default function MovieSearch() {
                     handleSearch={handleSearch}
                 />
             </div>
-                <h5>Select the movie you'd like to add to the list. If the movie is already on the list, it will take you to its voting page.</h5>
+                <h5>
+                    Select the movie you'd like to add to the list. 
+                    If the movie is already on the list, it will take you to its voting page.
+                </h5>
             <div className='movie-container'>
                 {loading ? <RingLoader color='#03e9f4' /> : 
                 movieList?.map(movie => {
                     return (
-                        <div style=
-                            {{backgroundImage: `url(${movie?.Poster})`, 
-                            backgroundRepeat: 'no-repeat', 
-                            backgroundSize:`contain` }} 
+                        <div 
+                            className='movie-card'
+                            style={{
+                                backgroundImage: `url(${movie?.Poster})`, 
+                                backgroundRepeat: 'no-repeat', 
+                                backgroundSize:`contain` 
+                            }} 
                             key={movie?.imdbID} 
                             onClick={handleClick(`${movie?.imdbID}`)} 
-                            className='movie-card'
                         >
                             <div>
-
                             </div>
                             <div className='details'>
                                 <p>{movie?.Title}, {movie?.Year}</p>

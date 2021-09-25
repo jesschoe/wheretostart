@@ -2,16 +2,15 @@ import { useState } from 'react'
 import { editReview } from '../../services'
 import ReviewForm from './ReviewForm'
 
-
-export default function SubmitReview(props) {
-    const {id, review, Movies, title, username} = props.reviews
+// patch request to Aritable's reviews endpoint to update review
+export default function EditReview(props) {
+    const { id, review, Movies, title, username } = props.reviews
     const [ reviews, setReviews ] = useState(review)
 
     console.log(props)
     const handleSubmit = async(e) => {
         e.preventDefault()
         
-
         const fields = {
             "title": `${title}`,
             "Movies": [`${Movies}`],

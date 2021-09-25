@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import './Slider.css'
-import { fetchMovies } from '../../services'
 import Swipe from 'react-easy-swipe';
+import { fetchMovies } from '../../services'
+import './Slider.css'
 
+// slider to display movie cards according to vote ranking
 export default function Slider() {
     const [ slideIndex, setSlideIndex ] = useState(1)
     const [ movies, setMovies ] = useState([])
@@ -11,18 +12,18 @@ export default function Slider() {
 
     useEffect(() => {
         const setAllMovies = async() => {
-        let allMovies = await fetchMovies()
+            let allMovies = await fetchMovies()
 
-        function compare( mov1, mov2 ) {
-            if ( mov1.fields.votes < mov2.fields.votes ){
-                return 1;
+            function compare( mov1, mov2 ) {
+                if ( mov1.fields.votes < mov2.fields.votes ){
+                    return 1;
+                }
+                else {
+                    return -1;
+                }
             }
-            else {
-                return -1;
-            }
-        }
-        allMovies.sort( compare );
-        setMovies(allMovies)
+            allMovies.sort( compare );
+            setMovies(allMovies)
         }
         setAllMovies()
     }, [])
@@ -43,6 +44,7 @@ export default function Slider() {
         }
     }
 
+    // swipe functions for touch screens
     function onSwipeStart() {
     }
     
@@ -60,11 +62,16 @@ export default function Slider() {
 
     return (
         <div className='slider-container'>
-            {movies.map((movie,i) => {
-                
-                return (
-                    <div key={movie.id} className={slideIndex === i + 1 ? 'slide active' : 'slide'}>
-                        <Link to={`/movies/${movie.id}/${i+1}`} key={movie.id} style={{ textDecoration: 'none' }}>
+            {movies.map((movie,i) => {return (
+                    <div 
+                        key={movie.id} 
+                        className={slideIndex === i + 1 ? 'slide active' : 'slide'}
+                    >
+                        <Link 
+                            to={`/movies/${movie.id}/${i+1}`} 
+                            key={movie.id} 
+                            style={{ textDecoration: 'none' }}
+                        >
                             <Swipe
                                 onSwipeStart={onSwipeStart}
                                 onSwipeMove={onSwipeMove}
@@ -85,14 +92,9 @@ export default function Slider() {
                                 </div>
                             </Swipe>
                         </Link>
-                    </div>
-                    
-                )
-            })}
-
-
+                    </div> 
+            )})}
             <i className="fas fa-chevron-right arrow next" onClick={nextSlide}></i>
-            
             <i className="fas fa-chevron-left arrow prev" onClick={prevSlide}></i> 
         </div>
     )
