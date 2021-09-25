@@ -30,6 +30,7 @@ export default function EditReview(props) {
             setReviews={setReviews}
             id={id}
             setShowModal={props.setShowModal}
+            message={props.message}
         />
     )
 }

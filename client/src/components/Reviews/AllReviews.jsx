@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { getReviews, deleteReview } from '../../services'
 import Modal from '../Modal'
+import DeleteModal from '../DeleteModal'
 import './AllReviews.css'
 
 // fetch and sort array of reviews by created time and display
 export default function AllReviews(props) {
     const [ reviews, setReviews ] = useState([])
     const [ showModal, setShowModal ] = useState(false)
+    const [ showDeleteModal, setShowDeleteModal ] = useState(false)
 
     useEffect(() => {
         if (props.reviewIds) {
@@ -48,7 +50,11 @@ export default function AllReviews(props) {
         )}
     }, [props.reviewIds])
 
-    const handleDelete = async(id) => {
+    const handleDelete = () => {
+        setShowDeleteModal(true)
+    }
+
+    const confirmDelete = async(id) => {
         await deleteReview(id)
         window.location.reload();
     }
@@ -81,17 +87,27 @@ export default function AllReviews(props) {
                         <div className='review-btns'>
                             <button onClick={()=>handleEdit(review.id)}>edit</button>
                             <button onClick={()=>handleDelete(review.id)}>delete</button>
-                            <Modal 
-                                showModal={showModal} 
-                                setShowModal={setShowModal} 
-                                reviews={review} edit='true'
-                            />
                         </div>
                     ) : 
                         <p className='disabled-btn'>delete</p> 
                     }
+                    
                 </div>
             )}
+            <Modal 
+                showModal={showModal} 
+                setShowModal={setShowModal} 
+                reviews={reviews[0]} 
+                edit='true'
+                message='make your changes and re-submit!'
+            />
+            <DeleteModal 
+                showDeleteModal={showDeleteModal} 
+                setShowDeleteModal={setShowDeleteModal}
+                confirmDelete={confirmDelete}
+                reviews={reviews[0]}
+                alert='are you sure you want to delete?'
+            />  
         </div>
     )
 }

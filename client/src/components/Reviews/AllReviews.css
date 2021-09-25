@@ -12,6 +12,7 @@
 }
 
 .reviews {
+    position: relative;
     color: #FFC9FF;
     background-color: #160932;
     margin: 10px;

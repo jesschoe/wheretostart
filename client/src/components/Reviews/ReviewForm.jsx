@@ -7,7 +7,7 @@ export default function ReviewForm(props) {
                 className="fas fa-times" 
                 onClick={() => props.setShowModal(prev=>!prev)}
             ></i>
-            <h4>Thanks for voting! Would you like to leave a review?</h4>
+            <h4>{props.message}</h4>
             <form onSubmit={props.handleSubmit}>
             <div className="user-box">
                 <input 
@@ -33,7 +33,7 @@ export default function ReviewForm(props) {
                     <button 
                         type='submit' 
                         className='font-orb' 
-                        disabled={props.reviews===''?true:false}
+                        // disabled={props.reviews===''?true:false}
                     >
                         <span></span>
                         <span></span>

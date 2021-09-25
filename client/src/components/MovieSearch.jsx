@@ -63,7 +63,7 @@ export default function MovieSearch() {
     return (
         <div className='search-container'>
             <div className='search-form'>
-                <h3>Search for another movie to recommend!</h3>
+                <h3>Enter the full title of another movie to recommend: </h3>
                 <MovieSearchForm 
                     title={title}
                     setTitle={setTitle}

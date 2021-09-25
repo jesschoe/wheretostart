@@ -192,7 +192,8 @@ footer img {
 
 .search-container h5 {
   color: white;
-  margin: 20px;
+  padding: 30px;
+  margin: -20px 0;
 }
 
 .search-form {
@@ -209,6 +210,17 @@ footer img {
   margin: 40px;
 }
 
+.search-form h3 {
+  padding: 10px;
+  margin: 10px 0 -10px 0;
+}
+
+.alert-container {
+  width: 100%;
+  height: 100%;
+  opacity: .6;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -219,6 +231,49 @@ form {
   width: 200px;
   padding: 5px;
   font-family: 'Rajdhani', sans-serif;
+}
+
+.alert-box {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  width: 170px;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  background: #160932;
+  box-shadow: 5px 5px 5px #160932;
+  opacity: .95;
+  z-index: 1000;
+  color: white;
+  font-size: .9em;
+}
+
+.delete-alert-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 170px;
+  padding: 30px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(45deg,  rgb(168, 1, 206),rgb(20, 120, 203));
+  box-shadow: 5px 5px 5px #160932;
+  opacity: .95;
+  z-index: 1000;
+  color: white;
+  font-size: .9em;
+}
+
+.delete-alert-box p {
+  margin: -10px 0 10px 0;
+}
+
+.delete-alert-btns {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-alert-btns button {
+  margin: -15px;
 }
 
 button {
@@ -312,7 +367,7 @@ label {
   }
 
   .search-form h3 {
-    margin: 0 30px;
+    margin: 0 10px;
   }
 
   .search-form form {

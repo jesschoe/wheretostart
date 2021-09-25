@@ -11,7 +11,8 @@ export default function Modal(props) {
                         <EditReview 
                             setShowModal={props.setShowModal}
                             reviews={props.reviews} 
-                            edit={props.edit} 
+                            edit={props.edit}
+                            message={props.message} 
                         /> :
                         <SubmitReview setShowModal={props.setShowModal} /> 
                     }
