@@ -1,15 +1,17 @@
 import { useState, useEffect } from 'react'
 import { getReviews, deleteReview } from '../../services'
+import Modal from '../Modal'
 import './AllReviews.css'
 
 export default function AllReviews(props) {
     const [ reviews, setReviews ] = useState([])
+    const [ showModal, setShowModal ] = useState(false)
 
     useEffect(() => {
         if (props.reviewIds) {
             props.reviewIds.map(async (reviewId) => {
                 const data = await getReviews(reviewId)
-                
+
                 let time = data.createdTime.split('')
                 for (let i = 0; i < time.length; i++) {
                     if (time[i] === 'T') {
@@ -18,7 +20,7 @@ export default function AllReviews(props) {
                         time.splice([i], 5)
                     }
                 }
-                console.log(time)
+
                 const compareTimes = time
                 time = time.join('')
 
@@ -31,6 +33,7 @@ export default function AllReviews(props) {
                 const reviewObj = {
                     title: data.fields.title,
                     username: data.fields.username,
+                    Movies: data.fields.Movies[0],
                     review: data.fields.review,
                     id: reviewId,
                     time: time,
@@ -57,6 +60,10 @@ export default function AllReviews(props) {
 
     reviews.sort(compare)
 
+    const handleEdit = async(id) => {
+        setShowModal(prev => !prev)
+    }
+
     return (
         <div className='reviews-container'>
             <h3>REVIEWS</h3>
@@ -65,11 +72,17 @@ export default function AllReviews(props) {
                     <p className='review-text'>{review.review}</p>
                     <p className='review-name'>-{review.username}</p>
                     <p className='review-time'>{review.time}</p>
-                    {i===0 ? <button onClick={()=>handleDelete(review.id)}>delete</button> : 
+                    {i===0 ? (
+                        <div className='review-btns'>
+                            <button onClick={()=>handleEdit(review.id)}>edit</button>
+                            <button onClick={()=>handleDelete(review.id)}>delete</button>
+                            <Modal showModal={showModal} setShowModal={setShowModal} reviews={review} edit='true'/>
+                        </div>) : 
                         <p className='disabled-btn'>delete</p> }
                 </div>) 
             
             }
+            
         </div>
     )
 }

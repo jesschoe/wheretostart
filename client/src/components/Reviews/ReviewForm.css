@@ -9,6 +9,7 @@
     background: linear-gradient(45deg,  rgb(168, 1, 206),rgb(20, 120, 203));
     box-shadow: 5px 5px 5px #03e9f4;
     opacity: .95;
+    z-index: 1000;
 }
 
 .review-box h4 {
@@ -19,6 +20,7 @@
 
 .review-box .user-box {
     position: relative;
+    z-index: 1000;
 }
 
 .review-box .user-box input {

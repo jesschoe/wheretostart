@@ -57,6 +57,11 @@ export async function deleteReview(id) {
     return res.data
 }
 
+export async function editReview(id, fields) {
+    const res = await axios.patch(`${reviewsURL}/${id}`, {fields}, config)
+    return res.data
+}
+
 export async function fetchMovieDetails(movieTitle) {
     const res = await axios.get(`${omdbURL}${movieTitle}`)
     return res.data
