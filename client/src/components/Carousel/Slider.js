@@ -7,7 +7,6 @@ import './Slider.css'
 export default function Slider() {
     const [ slideIndex, setSlideIndex ] = useState(1)
     const [ movies, setMovies ] = useState([])
-    const [ xPosition, setXPosition ] = useState(0)
 
     useEffect(() => {
         const setAllMovies = async() => {
