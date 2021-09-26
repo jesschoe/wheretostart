@@ -233,49 +233,6 @@ form {
   font-family: 'Rajdhani', sans-serif;
 }
 
-.alert-box {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  width: 170px;
-  padding: 30px;
-  transform: translate(-50%, -50%);
-  background: #160932;
-  box-shadow: 5px 5px 5px #160932;
-  opacity: .95;
-  z-index: 1000;
-  color: white;
-  font-size: .9em;
-}
-
-.delete-alert-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 170px;
-  padding: 30px;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(45deg,  rgb(168, 1, 206),rgb(20, 120, 203));
-  box-shadow: 5px 5px 5px #160932;
-  opacity: .95;
-  z-index: 1000;
-  color: white;
-  font-size: .9em;
-}
-
-.delete-alert-box p {
-  margin: -10px 0 10px 0;
-}
-
-.delete-alert-btns {
-  display: flex;
-  justify-content: center;
-}
-
-.delete-alert-btns button {
-  margin: -15px;
-}
-
 button {
   width: 80px;
   align-self:flex-end;

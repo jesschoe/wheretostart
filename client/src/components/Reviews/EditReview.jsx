@@ -7,7 +7,6 @@ export default function EditReview(props) {
     const { id, review, Movies, title, username } = props.reviews
     const [ reviews, setReviews ] = useState(review)
 
-    console.log(props)
     const handleSubmit = async(e) => {
         e.preventDefault()
         

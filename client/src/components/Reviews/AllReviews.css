@@ -60,3 +60,8 @@
     font-size: .7em;
 }
 
+.disabled-btn:hover {
+    background: transparent;
+    color: rgb(7, 62, 109);
+}
+

@@ -1,5 +1,5 @@
-import SubmitReview from "./Reviews/SubmitReview"
-import EditReview from "./Reviews/EditReview"
+import SubmitReview from "../Reviews/SubmitReview"
+import EditReview from "../Reviews/EditReview"
 
 // Display edit or submit review component depending on props passed
 export default function Modal(props) {

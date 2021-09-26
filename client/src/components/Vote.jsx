@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { fetchMovie, voteMovie } from '../services'
-import Modal from './Modal'
+import Modal from './Modals/Modal'
 
 // send patch request to Airtable to update vote count
 // display review form modal after vote click

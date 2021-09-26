@@ -1,4 +1,4 @@
-
+import './Modals.css'
 
 // Display delete confirmation
 export default function DeleteModal(props) {

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { fetchMovie } from '../services'
 import Details from './Details'
-import AllReviews from '../components/Reviews/AllReviews'
+import AllReviews from './Reviews/AllReviews'
 
 // use params to fetch single movie id and send props to details and review components
 export default function MovieDetails() {

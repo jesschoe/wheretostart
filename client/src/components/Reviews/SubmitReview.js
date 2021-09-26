@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useParams } from 'react-router'
 import { fetchMovie, reviewMovie } from '../../services'
-import AlertModal from '../AlertModal'
+import AlertModal from '../Modals/AlertModal'
 import ReviewForm from './ReviewForm'
 
 // post request to Airtable reviews endpoint for new movie review
@@ -52,7 +52,7 @@ export default function SubmitReview(props) {
             <AlertModal 
                 showAlert={showAlert} 
                 setShowAlert={setShowAlert} 
-                alert='please enter your review or click x to close pop-up'
+                alert='please enter your review or click x to close'
             />
         </>   
     )

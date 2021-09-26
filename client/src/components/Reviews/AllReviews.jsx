@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getReviews, deleteReview } from '../../services'
-import Modal from '../Modal'
-import DeleteModal from '../DeleteModal'
+import Modal from '../Modals/Modal'
+import DeleteModal from '../Modals/DeleteModal'
 import './AllReviews.css'
 
 // fetch and sort array of reviews by created time and display
@@ -9,32 +9,26 @@ export default function AllReviews(props) {
     const [ reviews, setReviews ] = useState([])
     const [ showModal, setShowModal ] = useState(false)
     const [ showDeleteModal, setShowDeleteModal ] = useState(false)
+    const now = new Date
 
     useEffect(() => {
         if (props.reviewIds) {
             props.reviewIds.map(async (reviewId) => {
                 const data = await getReviews(reviewId)
+                let date = Date.parse(data.createdTime)
 
                 // format time for displaying purposes
-                let time = data.createdTime.split('')
+                let displayDate = data.createdTime.split('')
 
-                for (let i = 0; i < time.length; i++) {
-                    if (time[i] === 'T') {
-                        time[i] = ' '
-                    } else if (time[i] === '.') {
-                        time.splice([i], 5)
+                for (let i = 0; i < displayDate.length; i++) {
+                    if (displayDate[i] === 'T') {
+                        displayDate[i] = ' '
+                    } else if (displayDate[i] === '.') {
+                        displayDate.splice([i], 5)
                     }
                 }
 
-                // create new time variable for sorting purposes
-                const compareTimes = time
-                time = time.join('')
-
-                for (let i = 0; i < compareTimes.length; i++) {
-                    if (isNaN(compareTimes[i]) || compareTimes[i] === ' ') {
-                        compareTimes.splice(i, 1)
-                    }
-                }
+                displayDate = displayDate.join('')
                 
                 const reviewObj = {
                     title: data.fields.title,
@@ -42,8 +36,8 @@ export default function AllReviews(props) {
                     Movies: data.fields.Movies[0],
                     review: data.fields.review,
                     id: reviewId,
-                    time: time,
-                    compareTimes: compareTimes
+                    time: displayDate,
+                    date: date
                 }
                 setReviews((prevState) => [...prevState, reviewObj])
             }
@@ -60,7 +54,7 @@ export default function AllReviews(props) {
     }
 
     function compare( rev1, rev2 ) {
-        if ( rev1.compareTimes < rev2.compareTimes){
+        if ( rev1.date < rev2.date){
             return 1;
         }
         else {
@@ -83,13 +77,17 @@ export default function AllReviews(props) {
                     <p className='review-text'>{review.review}</p>
                     <p className='review-name'>-{review.username}</p>
                     <p className='review-time'>{review.time}</p>
-                    {i===0 ? (
+                    {now - review.date < 10000? (
                         <div className='review-btns'>
-                            <button onClick={()=>handleEdit(review.id)}>edit</button>
-                            <button onClick={()=>handleDelete(review.id)}>delete</button>
+                            <button 
+                                onClick={()=>handleEdit(review.id)}
+                            >edit</button>
+                            <button 
+                                onClick={()=>handleDelete(review.id)}
+                            >delete</button>
                         </div>
                     ) : 
-                        <p className='disabled-btn'>delete</p> 
+                        ''
                     }
                     
                 </div>
