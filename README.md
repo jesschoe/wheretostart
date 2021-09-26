@@ -96,55 +96,53 @@ Airtable is returning the data for this base as follows:
 
 Taking the auto-created timestamp from Airtable and manipulating the strings into two different formats that I needed was fun. One format is for displaying and one format is to turn it into numbers to compare and use in the compare function for sorting. That was all so that I could have the reviews display in order with the most recent on top.
 ```
-// if the array of review IDs exist as props, start mapping through and get the timestamp
+// fetch and sort array of reviews by created time and display
+  useEffect(() => {
+      if (props.reviewIds) {
+          props.reviewIds.map(async (reviewId) => {
+              const data = await getReviews(reviewId)
+              let date = Date.parse(data.createdTime)
 
-useEffect(() => {
-  if (props.reviewIds) {
-    props.reviewIds.map(async (reviewId) => {
-        const data = await getReviews(reviewId)
+              // format time for displaying purposes
+              let displayDate = data.createdTime.split('')
 
-        // format time for displaying purposes
+              for (let i = 0; i < displayDate.length; i++) {
+                  if (displayDate[i] === 'T') {
+                      displayDate[i] = ' '
+                  } else if (displayDate[i] === '.') {
+                      displayDate.splice([i], 5)
+                  }
+              }
 
-        let time = data.createdTime.split('')
-        for (let i = 0; i < time.length; i++) {
-            if (time[i] === 'T') {
-                time[i] = ' '
-            } else if (time[i] === '.') {
-                time.splice([i], 5)
-            }
-        }
+              displayDate = displayDate.join('')
+              
+              // construct object to push into reviews array
+              const reviewObj = {
+                  title: data.fields.title,
+                  username: data.fields.username,
+                  Movies: data.fields.Movies[0],
+                  review: data.fields.review,
+                  id: reviewId,
+                  time: displayDate,
+                  date: date
+              }
+              setReviews((prevState) => [...prevState, reviewObj])
+          }
+      )}
+  }, [props.reviewIds])
 
-        // create new time variable for sorting purposes
+  // function for sorting reviews by date
+  function compare( rev1, rev2 ) {
+      if ( rev1.date < rev2.date){
+          return 1;
+      }
+      else {
+          return -1;
+      }
+  }
 
-        const compareTimes = time
-        time = time.join('')
+  reviews.sort(compare)
 
-        // function to compare times
-
-        for (let i = 0; i < compareTimes.length; i++) {
-            if (isNaN(compareTimes[i]) || compareTimes[i] === ' ') {
-                compareTimes.splice(i, 1)
-            }
-        }
-        
-        // create review object containing information that will display in the correct format
-
-        const reviewObj = {
-            title: data.fields.title,
-            username: data.fields.username,
-            Movies: data.fields.Movies[0],
-            review: data.fields.review,
-            id: reviewId,
-            time: time,
-            compareTimes: compareTimes
-        }
-
-        // push objects into reviews array using state
-        
-        setReviews((prevState) => [...prevState, reviewObj])
-    }
-  )}
-}, [props.reviewIds])
 ```
 
 
