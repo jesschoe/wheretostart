@@ -9,7 +9,7 @@ export default function AllReviews(props) {
     const [ reviews, setReviews ] = useState([])
     const [ showModal, setShowModal ] = useState(false)
     const [ showDeleteModal, setShowDeleteModal ] = useState(false)
-    const now = new Date
+    const now = new Date()
 
     useEffect(() => {
         if (props.reviewIds) {
