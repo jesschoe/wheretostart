@@ -4,7 +4,7 @@ import Modal from '../Modals/Modal'
 import DeleteModal from '../Modals/DeleteModal'
 import './AllReviews.css'
 
-// fetch and sort array of reviews by created time and display
+// fetch, sort, and display array of reviews by created time
 export default function AllReviews(props) {
     const [ reviews, setReviews ] = useState([])
     const [ showModal, setShowModal ] = useState(false)
@@ -30,6 +30,7 @@ export default function AllReviews(props) {
 
                 displayDate = displayDate.join('')
                 
+                // create review object and push into reviews array
                 const reviewObj = {
                     title: data.fields.title,
                     username: data.fields.username,
@@ -72,7 +73,7 @@ export default function AllReviews(props) {
     return (
         <div className='reviews-container'>
             <h3>REVIEWS</h3>
-            {reviews.map((review, i) =>
+            {reviews.map((review) =>
                 <div className='reviews' key={review.id}>
                     <p className='review-text'>{review.review}</p>
                     <p className='review-name'>-{review.username}</p>
@@ -86,10 +87,8 @@ export default function AllReviews(props) {
                                 onClick={()=>handleDelete(review.id)}
                             >delete</button>
                         </div>
-                    ) : 
-                        ''
+                    ) : ''
                     }
-                    
                 </div>
             )}
             <Modal 
