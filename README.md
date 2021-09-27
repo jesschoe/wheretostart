@@ -90,7 +90,7 @@ Airtable is returning the data for this base as follows:
 | Advanced CSS              |    L     |      3hrs      |      3hrs     |     3hrs    |
 | Sort reviews and restrict edit/delete|    L  |  3hrs  |      4hrs     |     4hrs    |
 | Create modals             |    L     |      3hrs      |      3hrs     |     3hrs    |
-| Total to MVP              |          |      26hrs     |      45hrs    |     45hrs   |
+| Total                     |          |to MVP 26hrs    |      45hrs    |       |
 
 ## Code Snippet
 
